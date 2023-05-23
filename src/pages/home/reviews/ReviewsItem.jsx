@@ -1,4 +1,4 @@
-import React from "react";
+
 import Avatar from "@mui/material/Avatar";
 import StarIcon from "@mui/icons-material/Star";
 

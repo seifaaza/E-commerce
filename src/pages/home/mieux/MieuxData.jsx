@@ -12,7 +12,7 @@ const MieuxData = [
         content: 'Pour affirmer notre crédibilité, nous travaillons avec tous nos clients avec sincérité et honnêteté, tout comme nos artisans'
     },
     {
-        icon: 'Communication',
+        icon: 'communication',
         content: 'Nous restons en contact permanent avec nos clients, même après le service, pour assurer la satisfaction du client'
     },
 ]

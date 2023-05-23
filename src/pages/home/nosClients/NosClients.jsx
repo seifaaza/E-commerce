@@ -1,11 +1,11 @@
-import React from "react";
+
 import NosClientsItem from "./NosClientsItem";
 import NosClientsData from "./NosClientsData";
 
 export default function NosClients() {
   const NosClientsItems = () => {
     return NosClientsData.map((item, index) => {
-      return <NosClientsItem logo={item.logo} />;
+      return <NosClientsItem key={index} logo={item.logo} />;
     });
   };
   return (

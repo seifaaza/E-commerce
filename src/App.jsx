@@ -6,12 +6,12 @@ import { Route, Routes } from "react-router-dom";
 import Contactez from "./pages/contactez/Contactez";
 import Footer from "./footer/Footer";
 import Blog from "./pages/blog/Blog";
-// import Error from "./error/Error";
+import Error from "./error/Error";
 import "./index.css";
 import ScrollToTop from "./ScrollToTop";
 import Confirmer from "./pages/confirmer/Confimer";
 import Diagnostic from "./pages/diagnostic/Diagnostic";
-import Market from "./pages/confirmer/market/Market";
+import Market from "./pages/market/Market";
 
 function App() {
   // arrow up button
@@ -38,10 +38,11 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/market" element={<Market />} />
           <Route path="/demander-un-service" element={<Confirmer />} />
+          <Route path="/confirmer" element={<Confirmer />} />
           <Route path="/diagnostic" element={<Diagnostic />} />
           <Route path="/contactez-nous" element={<Contactez />} />
           <Route path="/blog" element={<Blog />} />
-          {/* <Route path="*" element={<Error />} /> */}
+          <Route path="*" element={<Error />} />
         </Routes>
       </div>
       <Footer />
@@ -64,6 +65,26 @@ function App() {
         src="assets/shapes/blur.png"
         alt=""
         className="blur-shape blur-4 dark:opacity-5"
+      />
+      <img
+        src="assets/shapes/blur.png"
+        alt=""
+        className="blur-shape blur-5 dark:opacity-5"
+      />
+      <img
+        src="assets/shapes/blur.png"
+        alt=""
+        className="blur-shape blur-6 dark:opacity-5"
+      />
+      <img
+        src="assets/shapes/blur.png"
+        alt=""
+        className="blur-shape blur-7 dark:opacity-5"
+      />
+      <img
+        src="assets/shapes/blur.png"
+        alt=""
+        className="blur-shape blur-8 dark:opacity-5"
       />
       {/* <img
         src="/assets/shapes/arrow-up.svg"

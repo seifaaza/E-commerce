@@ -1,0 +1,66 @@
+const MarketData = [
+  {
+    title: "Produit 1",
+    image: "produit1.png",
+    mark: "Marque X",
+    des: "lorem ipsum dolor sit amet ipsum dolor sit amet, ipsum dolor sit amet lorem ipsum dolor sit amet ipsum dolor sit amet",
+    price: "210",
+  },
+  {
+    title: "Produit 2",
+    image: "produit2.jpg",
+    mark: "Marque X",
+    des: "lorem ipsum dolor sit amet ipsum dolor sit amet, ipsum dolor sit amet lorem ipsum dolor sit amet ipsum dolor sit amet",
+    price: "210",
+  },
+  {
+    title: "Produit 3",
+    image: "produit3.jpg",
+    mark: "Marque X",
+    des: "lorem ipsum dolor sit amet ipsum dolor sit amet, ipsum dolor sit amet lorem ipsum dolor sit amet ipsum dolor sit amet",
+    price: "210",
+  },
+  {
+    title: "Produit 4",
+    image: "produit4.jpg",
+    mark: "Marque X",
+    des: "lorem ipsum dolor sit amet ipsum dolor sit amet, ipsum dolor sit amet lorem ipsum dolor sit amet ipsum dolor sit amet",
+    price: "210",
+  },
+  {
+    title: "Produit 5",
+    image: "produit5.png",
+    mark: "Marque X",
+    des: "lorem ipsum dolor sit amet ipsum dolor sit amet, ipsum dolor sit amet lorem ipsum dolor sit amet ipsum dolor sit amet",
+    price: "210",
+  },
+  {
+    title: "Produit 6",
+    image: "produit6.jpeg",
+    mark: "Marque X",
+    des: "lorem ipsum dolor sit amet ipsum dolor sit amet, ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet",
+    price: "210",
+  },
+  {
+    title: "Produit 7",
+    image: "produit7.jpg",
+    mark: "Marque X",
+    des: "lorem ipsum dolor sit amet ipsum dolor sit amet, ipsum dolor sit amet lorem ipsum dolor sit amet",
+    price: "210",
+  },
+  {
+    title: "Produit 8",
+    image: "produit8.jpg",
+    mark: "Marque X",
+    des: "lorem ipsum dolor sit amet ipsum dolor sit amet, ipsum dolor sit amet lorem ipsum dolor sit amet",
+    price: "210",
+  },
+  {
+    title: "Produit 9",
+    image: "produit9.png",
+    mark: "Marque X",
+    des: "lorem ipsum dolor sit amet ipsum dolor sit amet, ipsum dolor sit amet lorem ipsum dolor sit amet",
+    price: "210",
+  },
+];
+export default MarketData;

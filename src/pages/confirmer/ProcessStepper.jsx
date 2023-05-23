@@ -97,8 +97,8 @@ export default function ProcessStepper() {
   };
 
   return (
-    <div className="w-full flex flex-col gap-5">
-      <Stepper activeStep={activeStep}>
+    <div className="w-full flex flex-col gap-5 items-center">
+      <Stepper activeStep={activeStep} className="w-full mb-5">
         {FormSteps.map((label, index) => {
           return (
             <Step key={index}>
@@ -120,7 +120,7 @@ export default function ProcessStepper() {
             id="outlined-textarea"
             label="Nom et prénom"
             placeholder="Saisissez votre adresse e-mail"
-            className="w-full max-w-md"
+            className="w-full max-w-md "
             value={formData.nomEtPrenom}
             onChange={(e) =>
               setFormData({ ...formData, nomEtPrenom: e.target.value })
@@ -161,17 +161,7 @@ export default function ProcessStepper() {
         </>
       ) : activeStep === 1 ? (
         <>
-          <TextField
-            color="warning"
-            id="outlined-textarea"
-            label="Nom et prénom"
-            placeholder="Saisissez votre adresse e-mail"
-            className="w-full max-w-md"
-            value={formData.detail}
-            onChange={(e) =>
-              setFormData({ ...formData, detail: e.target.value })
-            }
-          />
+          <hr className="w-2/4 border-slate-300 border-2 border-dashed"/>
           <StepButtons />
         </>
       ) : activeStep === 2 ? (

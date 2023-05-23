@@ -1,8 +1,7 @@
-import React from "react";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import ErrorAnimation from "./error-404.json";
-import Lottie from "lottie-react";
+// import ErrorAnimation from "./error-404.json";
+// import Lottie from "lottie-react";
 
 export default function Error() {
   return (
@@ -14,7 +13,7 @@ export default function Error() {
           Désolé, La page que vous recherchez semble introuvable
         </p>
         <Button variant="contained" className="btn btn-contained w-fit">
-          <Link to="/">Retour à l'acceuil</Link>
+          <Link to="/">Retour à l&apos;acceuil</Link>
         </Button>
       </div>
     </div>

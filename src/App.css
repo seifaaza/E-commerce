@@ -50,6 +50,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
 }
+::selection{
+  background: var(--text-slate-300);
+}
 
 /**************************** Responsive design ****************************/
 .main-container {
@@ -69,7 +72,7 @@ body {
 }
 @media (min-width: 1280px) {
   .main-container {
-    max-width: 1124px;
+    max-width: 1224px;
   }
 }
 
@@ -303,7 +306,7 @@ body {
 .blur-shape {
   position: absolute;
   width: 820px;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 .blur-1{
   left: 40%;
@@ -314,13 +317,22 @@ body {
   top: 20%;
 }
 .blur-3{
-  right: 0%;
-  top: 48%;
+  left: 0%;
+  top: 55%;
 }
 .blur-4{
   left: 0%;
   top: 75%;
 }
+.blur-5{
+  left: 20%;
+  bottom: 80%;
+}
+.blur-6{
+  right: 0%;
+  top: 30%;
+}
+
 
 .dropdown {
   z-index: 9999;
