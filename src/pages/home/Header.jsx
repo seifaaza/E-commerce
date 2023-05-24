@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <div className="py-10 px-3 flex flex-col tablet:flex-row justify-between items-center gap-10 laptop:gap-28 laptop:px-8 tablet:pt-24">
-      <div className="heading text-center tablet:text-start font-main text-slate-700 flex flex-col gap-4">
+      <div className="heading text-center items-center tablet:items-start tablet:text-start font-main text-slate-700 flex flex-col gap-4">
         <h1 className="text-large tablet:text-large bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-500 whitespace-nowrap laptop:mb-5">
           Bali hani !
         </h1>
@@ -18,10 +18,10 @@ export default function Header() {
           produits et services de dépannage et petits travaux en quelques
           cliques{" "}
         </p>
-        <div className="flex mt-2 justify-center gap-4 tablet:gap-4 tablet:justify-start laptop:mt-4 whitespace-nowrap">
+        <div className="flex flex-col w-fit  tablet:flex-row max-w-xs tablet:max-w-none mt-2 justify-center gap-4 tablet:gap-4 tablet:justify-start laptop:mt-4 whitespace-nowrap">
           <Button
             component={Link}
-            to="/demander-un-service"
+            to=""
             variant="contained"
             className="btn btn-contained"
             endIcon={<ArrowForwardIcon />}
@@ -30,7 +30,7 @@ export default function Header() {
           </Button>
           <Button
             component={Link}
-            to="/diagnostic"
+            to=""
             variant="outlined"
             className="btn btn-outlined"
             endIcon={<SpeedIcon />}

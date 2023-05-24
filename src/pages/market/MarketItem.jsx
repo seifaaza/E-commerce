@@ -35,11 +35,11 @@ export default function MarketItem(props) {
   return (
     <>
       <div
-        className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded p-4 max-w-sm cursor-pointer hover:scale-105 duration-300 hover:shadow-sm"
+        className="flex flex-col gap-3 bg-white dark:bg-dark rounded p-4 max-w-sm cursor-pointer hover:scale-105 duration-300 hover:shadow-sm"
         onClick={handleOpen}
       >
         <div
-          className={`h-44 rounded  bg-contain bg-no-repeat bg-center bg-[url('/assets/images/produits/${props.image}')]`}
+          className={`h-44 rounded  bg-contain bg-no-repeat bg-center bg-[url('${props.image}')]`}
         ></div>
         <div className="flex justify-between dark:text-slate-100">
           <div>
@@ -58,20 +58,22 @@ export default function MarketItem(props) {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        
       >
         <Box
           sx={style}
-          className="shadow-md rounded flex flex-col laptop:flex-row w-2/4 h-80 justify-between"
+          className="shadow-md rounded flex flex-col laptop:flex-row w-5/6 tablet:w-2/4 h-fit justify-between"
         >
           <div
-            className={`h-64 w-2/4 rounded  bg-contain bg-no-repeat bg-center bg-[url('/assets/images/produits/${props.image}')]`}
+            className={`h-64 w-2/4 rounded  bg-contain bg-no-repeat bg-center bg-[url('${props.image}')]`}
           ></div>
           {addItem === false ? (
-            <div className="flex flex-col justify-between w-3/4 font-main">
-              <div className="flex justify-between">
+            <div className="flex flex-col justify-between w-full laptop:w-3/4 font-main">
+              <div className="flex justify-between ">
                 <div className="flex flex-col gap-2">
                   <h3 className="font-main text-medium">{props.title}</h3>
                   <h2 className="text-small-heading">{props.price} MAD</h2>
+                  <h2 className="text-small">{props.mark}</h2>
                 </div>
                 <div className="flex gap-1 ">
                   <StarIcon className="text-amber-500" />
@@ -80,7 +82,7 @@ export default function MarketItem(props) {
               </div>
               <div className="flex flex-col gap-5">
                 <p>{props.des}</p>
-                <div className="flex gap-3">
+                <div className="flex flex-col laptop:flex-row gap-3">
                   <Button
                     variant="outlined"
                     className="btn btn-outlined w-fit"
@@ -100,7 +102,7 @@ export default function MarketItem(props) {
               </div>
             </div>
           ) : (
-            <div className="flex flex-col justify-between w-3/4 font-main">
+            <div className="flex flex-col justify-between w-full laptop:w-3/4  font-main">
               <div className="flex justify-between">
                 <div className="flex flex-col gap-2">
                   <h3 className="font-main text-medium">{props.title}</h3>
@@ -126,7 +128,7 @@ export default function MarketItem(props) {
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-3">
+                <div className="flex flex-col laptop:flex-row gap-3">
                   <Button
                     variant="outlined"
                     className="btn btn-outlined w-fit"
