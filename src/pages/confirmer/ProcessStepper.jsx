@@ -10,9 +10,12 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import DoneIcon from "@mui/icons-material/Done";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import HomeIcon from "@mui/icons-material/Home";
-import IdentifiezVous from "./formSteps/IdentifiezVous";
-import Paiment from "./formSteps/Paiment";
-import Detail from "./formSteps/Detail";
+import PropTypes from "prop-types";
+import { styled } from "@mui/material/styles";
+import RadioGroup, { useRadioGroup } from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import AddCardIcon from '@mui/icons-material/AddCard';
+import PaidIcon from '@mui/icons-material/Paid';
 import { TextField } from "@mui/material";
 
 export default function ProcessStepper() {
@@ -84,7 +87,7 @@ export default function ProcessStepper() {
       <div className=" flex justify-center">
         <Button
           component={Link}
-          to=""
+          to="/"
           onClick={handleReset}
           variant="contained"
           className="btn btn-contained"
@@ -96,6 +99,32 @@ export default function ProcessStepper() {
     );
   };
 
+  const StyledFormControlLabel = styled((props) => (
+    <FormControlLabel {...props} />
+  ))(({ theme, checked }) => ({
+    ".MuiFormControlLabel-label": checked && {
+      // color: theme.palette.warning.main,
+    },
+  }));
+
+  function MyFormControlLabel(props) {
+    const radioGroup = useRadioGroup();
+
+    let checked = false;
+
+    if (radioGroup) {
+      checked = radioGroup.value === props.value;
+    }
+
+    return <StyledFormControlLabel checked={checked} {...props} />;
+  }
+
+  MyFormControlLabel.propTypes = {
+    /**
+     * The value of the component.
+     */
+    value: PropTypes.any,
+  };
   return (
     <div className="w-full flex flex-col gap-5 items-center">
       <Stepper activeStep={activeStep} className="w-full mb-5">
@@ -160,34 +189,37 @@ export default function ProcessStepper() {
           <StepButtons />
         </>
       ) : activeStep === 1 ? (
-        <>
-          <hr className="w-2/4 border-slate-300 border-2 border-dashed"/>
+        <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-2 justify-between">
+            <h1 className="text-xl">Produit 1</h1>
+            <div className="flex justify-between">
+              <p>Quantité : 2 </p>
+              <p>Totale : 420 MAD </p>
+            </div>
+          </div>
+          <hr className="w-full border-slate-300 border-2 border-dashed" />
+          <div className="flex flex-col gap-2 justify-between">
+            <h1>Mr Mohamed amine</h1>
+            <p>Adresse : Casablanca sidi maarouf rue 02 </p>
+          </div>
           <StepButtons />
-        </>
+        </div>
       ) : activeStep === 2 ? (
         <>
-          <TextField
-            color="warning"
-            id="outlined-textarea"
-            label="Nom et prénom"
-            placeholder="Saisissez votre adresse e-mail"
-            className="w-full max-w-md"
-            value={formData.paiment1}
-            onChange={(e) =>
-              setFormData({ ...formData, paiment1: e.target.value })
-            }
-          />
-          <TextField
-            color="warning"
-            id="outlined-textarea"
-            label="Tél"
-            placeholder="Saisissez votre numéro de téléphone"
-            className="w-full max-w-md"
-            value={formData.paiment2}
-            onChange={(e) =>
-              setFormData({ ...formData, paiment2: e.target.value })
-            }
-          />
+          <RadioGroup name="use-radio-group" defaultValue="" className=" gap-5">
+            <MyFormControlLabel
+              value="first"
+              label="Par carte"
+              control={<AddCardIcon />}
+              className="gap-3 bg-slate-100 p-6 px-8 rounded hover:text-orange-400"
+            />
+            <MyFormControlLabel
+              value="second"
+              label="Espèces"
+              control={<PaidIcon />}
+              className="gap-3 bg-slate-100 p-6 px-8 rounded hover:text-orange-400"
+            />
+          </RadioGroup>
           <StepButtons />
         </>
       ) : activeStep === 3 ? (
@@ -195,7 +227,7 @@ export default function ProcessStepper() {
           <CheckCircleIcon sx={{ fontSize: "5rem" }} color="warning" />
           <h3>Votre commande a été prise en compte</h3>
           <p className="max-w-lg">
-            Merci Seif Nous vous remercions de votre confiance. Votre numéro de
+            Merci Mohamed Nous vous remercions de votre confiance. Votre numéro de
             votre commande est{" "}
             <span className="underline font-medium">34843</span>
           </p>
