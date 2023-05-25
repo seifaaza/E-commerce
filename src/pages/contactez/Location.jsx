@@ -1,4 +1,4 @@
-import React from "react";
+
 
 const Location = () => {
   return (
@@ -10,7 +10,7 @@ const Location = () => {
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13317.117272428768!2d-7.6688310445800685!3d33.442028699999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda62e5858183ee5%3A0x7f3fbdecab6e70aa!2sQuick%20bricolage!5e0!3m2!1sfr!2sma!4v1684206337456!5m2!1sfr!2sma"
         className="w-full h-64 rounded-md"
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
+        referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
     </div>
   );

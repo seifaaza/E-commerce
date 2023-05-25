@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from 'prop-types';
 
 const MieuxItem = (props) => {
   return (
@@ -15,5 +15,12 @@ const MieuxItem = (props) => {
     </div>
   );
 };
+
+MieuxItem.propTypes = {
+  icon: PropTypes.string,
+  delay: PropTypes.number,
+  content: PropTypes.string,
+};
+
 
 export default MieuxItem;

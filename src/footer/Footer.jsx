@@ -1,4 +1,3 @@
-import React from "react";
 import SocialMediaData from "./SocialMediaData";
 import SocialMediaItem from "./SocialMediaItem";
 import FooterLinks from "./FooterLinks";

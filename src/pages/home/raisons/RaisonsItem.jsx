@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from 'prop-types';
 
 const RaisonsItem = (props) => {
   return (
@@ -19,5 +19,13 @@ const RaisonsItem = (props) => {
     </div>
   );
 };
+
+RaisonsItem.propTypes = {
+  icon: PropTypes.string,
+  delay: PropTypes.string,
+  title: PropTypes.string,
+  content: PropTypes.string,
+};
+
 
 export default RaisonsItem;

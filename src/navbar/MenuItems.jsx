@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+import PropTypes from 'prop-types';
 import Dropdown from "./Dropdown";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Link, NavLink } from "react-router-dom";
@@ -85,5 +86,12 @@ const MenuItems = ({ items }) => {
     </li>
   );
 };
+
+MenuItems.propTypes = {
+  items: PropTypes.string,
+  url: PropTypes.string,
+  submenu: PropTypes.string,
+};
+
 
 export default MenuItems;

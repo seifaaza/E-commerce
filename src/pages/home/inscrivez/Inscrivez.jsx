@@ -1,4 +1,4 @@
-import React from "react";
+
 import InscrivezForm from "./InscrivezForm";
 
 export default function Inscrivez() {
@@ -11,7 +11,7 @@ export default function Inscrivez() {
         <div className="flex flex-col gap-5  text-slate-700">
           <p className="text-small-heading max-w-lg text-center tablet:text-start tablet:text-lg dark:text-slate-300">
             En vous abonnant à Quick Bricolage vous pouvez profiter de
-            l'abonnement annuel et les astuces et les bons plans et de
+            l&apos;abonnement annuel et les astuces et les bons plans et de
             nombreuses autres offres
           </p>
           <InscrivezForm />

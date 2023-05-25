@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -22,9 +23,7 @@ export default function MarketItem(props) {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-
     bgcolor: "background.paper",
-
     p: 4,
   };
 
@@ -155,3 +154,11 @@ export default function MarketItem(props) {
     </>
   );
 }
+
+MarketItem.propTypes = {
+  image: PropTypes.string,
+  price: PropTypes.string,
+  title: PropTypes.string,
+  mark: PropTypes.string,
+  des: PropTypes.string,
+};

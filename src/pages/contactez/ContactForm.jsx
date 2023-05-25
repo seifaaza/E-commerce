@@ -1,9 +1,7 @@
-import React from "react";
+
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import Stack from "@mui/material/Stack";
-import Autocomplete from "@mui/material/Autocomplete";
 
 const ContactForm = () => {
   return (
@@ -67,24 +65,24 @@ const ContactForm = () => {
     </div>
   );
 };
-const topic = [
-  {
-    title: "Panneaux solaires",
-  },
-  {
-    title: "Électroménager",
-  },
-  {
-    title: "Climatisation",
-  },
-  {
-    title: "Plomberie",
-  },
-  {
-    title: "Électricité",
-  },
-  {
-    title: "Autre",
-  },
-];
+// const topic = [
+//   {
+//     title: "Panneaux solaires",
+//   },
+//   {
+//     title: "Électroménager",
+//   },
+//   {
+//     title: "Climatisation",
+//   },
+//   {
+//     title: "Plomberie",
+//   },
+//   {
+//     title: "Électricité",
+//   },
+//   {
+//     title: "Autre",
+//   },
+// ];
 export default ContactForm;

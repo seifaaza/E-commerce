@@ -14,12 +14,12 @@ import PropTypes from "prop-types";
 import { styled } from "@mui/material/styles";
 import RadioGroup, { useRadioGroup } from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import AddCardIcon from '@mui/icons-material/AddCard';
-import PaidIcon from '@mui/icons-material/Paid';
+import AddCardIcon from "@mui/icons-material/AddCard";
+import PaidIcon from "@mui/icons-material/Paid";
 import { TextField } from "@mui/material";
 
 export default function ProcessStepper() {
-  const [windowWidth, setWindowWidth] = useState(false);
+  // const [windowWidth, setWindowWidth] = useState(false);
 
   const [formData, setFormData] = useState({
     nomEtPrenom: "",
@@ -31,9 +31,9 @@ export default function ProcessStepper() {
     detail: "",
   });
 
-  window.addEventListener("resize", function () {
-    window.innerWidth > 640 ? setWindowWidth(true) : setWindowWidth(false);
-  });
+  // window.addEventListener("resize", function () {
+  //   window.innerWidth > 640 ? setWindowWidth(true) : setWindowWidth(false);
+  // });
 
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -93,7 +93,7 @@ export default function ProcessStepper() {
           className="btn btn-contained"
           startIcon={<HomeIcon />}
         >
-          Retour à l'acceuil
+          Retour à l&apos;acceuil
         </Button>
       </div>
     );
@@ -101,10 +101,12 @@ export default function ProcessStepper() {
 
   const StyledFormControlLabel = styled((props) => (
     <FormControlLabel {...props} />
-  ))(({ theme, checked }) => ({
-    ".MuiFormControlLabel-label": checked && {
-      // color: theme.palette.warning.main,
-    },
+  ))(({  checked }) => ({
+    ".MuiFormControlLabel-label":
+      checked &&
+      {
+        // color: theme.palette.warning.main,
+      },
   }));
 
   function MyFormControlLabel(props) {
@@ -227,8 +229,8 @@ export default function ProcessStepper() {
           <CheckCircleIcon sx={{ fontSize: "5rem" }} color="warning" />
           <h3>Votre commande a été prise en compte</h3>
           <p className="max-w-lg">
-            Merci Mohamed Nous vous remercions de votre confiance. Votre numéro de
-            votre commande est{" "}
+            Merci Mohamed Nous vous remercions de votre confiance. Votre numéro
+            de votre commande est{" "}
             <span className="underline font-medium">34843</span>
           </p>
 

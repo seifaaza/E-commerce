@@ -1,14 +1,14 @@
-import { useState } from "react";
+// import { useState } from "react";
 import NosClientsItem from "./NosClientsItem";
 import NosClientsData from "./NosClientsData";
 
 export default function NosClients() {
 
-  const [isScroll, setIsScroll] = useState(false);
-  const slide = () => {
-    window.scrollY !== 0 ? setIsScroll(true) : setIsScroll(false);
-  };
-  window.addEventListener("scroll", slide);
+  // const [isScroll, setIsScroll] = useState(false);
+  // const slide = () => {
+  //   window.scrollY !== 0 ? setIsScroll(true) : setIsScroll(false);
+  // };
+  // window.addEventListener("scroll", slide);
 
   const NosClientsItems = () => {
     return NosClientsData.map((item, index) => {

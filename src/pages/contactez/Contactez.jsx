@@ -1,4 +1,3 @@
-import React from "react";
 import ContactezHeader from "./ContactezHeader";
 import Location from "./Location";
 

@@ -1,4 +1,4 @@
-import React from "react";
+
 import ReviewsItem from "./ReviewsItem";
 import ReviewsData from "./ReviewsData";
 

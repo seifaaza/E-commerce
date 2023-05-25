@@ -14,7 +14,7 @@ export default function Header() {
           Satisfait ou refait
         </h2>
         <p className="text-small-heading max-w-lg tablet:text-lg dark:text-slate-300">
-          Plateforme en ligne facile à utiliser, qui vous permet d'accéder à nos
+          Plateforme en ligne facile à utiliser, qui vous permet d&apos;accéder à nos
           produits et services de dépannage et petits travaux en quelques
           cliques{" "}
         </p>

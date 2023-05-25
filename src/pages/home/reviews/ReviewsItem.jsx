@@ -1,7 +1,6 @@
-
+import PropTypes from 'prop-types';
 import Avatar from "@mui/material/Avatar";
 import StarIcon from "@mui/icons-material/Star";
-
 
 const ReviewsItem = (props) => {
   
@@ -30,5 +29,15 @@ const ReviewsItem = (props) => {
     </div>
   );
 };
+
+ReviewsItem.propTypes = {
+  name: PropTypes.string,
+  photo: PropTypes.string,
+  city: PropTypes.string,
+  rating: PropTypes.string,
+  review: PropTypes.string,
+  delay: PropTypes.string,
+};
+
 
 export default ReviewsItem;

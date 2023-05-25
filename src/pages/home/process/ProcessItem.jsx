@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from 'prop-types';
 
 const ProcessItem = (props) => {
   return (
@@ -30,5 +30,14 @@ const ProcessItem = (props) => {
     </>
   );
 };
+
+ProcessItem.propTypes = {
+  icon: PropTypes.string,
+  title: PropTypes.string,
+  delay: PropTypes.string,
+  content: PropTypes.string,
+  arrow: PropTypes.string,
+};
+
 
 export default ProcessItem;

@@ -1,4 +1,3 @@
-import * as React from "react";
 import ContactForm from "./ContactForm";
 
 const ContactezHeader = () => {
