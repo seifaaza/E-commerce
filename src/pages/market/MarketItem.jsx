@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -8,7 +8,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import StarIcon from "@mui/icons-material/Star";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import IconButton from "@mui/material/IconButton";
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import TextField from "@mui/material/TextField";
 
 export default function MarketItem(props) {
@@ -38,11 +38,11 @@ export default function MarketItem(props) {
         onClick={handleOpen}
       >
         <div
-          className={`h-44 rounded  bg-contain bg-no-repeat bg-center bg-[url('${props.image}')]`}
+          className={`h-44 rounded  bg-contain bg-no-repeat bg-center bg-[url('https://srv2.aptusmaroc.com/${props.images}')]`}
         ></div>
         <div className="flex justify-between dark:text-slate-100">
           <div>
-            <h1>{props.title}</h1>
+            <h1>{props.name}</h1>
             <h3 className="font-semibold"> {props.price} MAD</h3>
           </div>
 
@@ -57,30 +57,27 @@ export default function MarketItem(props) {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        
       >
         <Box
           sx={style}
           className="shadow-md rounded flex flex-col laptop:flex-row w-5/6 tablet:w-2/4 h-fit justify-between"
         >
           <div
-            className={`h-64 w-2/4 rounded  bg-contain bg-no-repeat bg-center bg-[url('${props.image}')]`}
+            className={`h-64 w-2/4 rounded  bg-contain bg-no-repeat bg-center bg-[url('https://srv2.aptusmaroc.com/media/images/product/topview-wh-tf-web-big_1687792057.jpeg')]`}
           ></div>
           {addItem === false ? (
             <div className="flex flex-col justify-between w-full laptop:w-3/4 font-main">
               <div className="flex justify-between ">
                 <div className="flex flex-col gap-2">
-                  <h3 className="font-main text-medium">{props.title}</h3>
+                  <h3 className="font-main text-medium">{props.name}</h3>
                   <h2 className="text-small-heading">{props.price} MAD</h2>
-                  <h2 className="text-small">{props.mark}</h2>
                 </div>
                 <div className="flex gap-1 ">
-                  <StarIcon className="text-amber-500" />
-                  <p className="dark:text-white">3.2</p>
+                  <p className="dark:text-white">{props.brand}</p>
                 </div>
               </div>
               <div className="flex flex-col gap-5">
-                <p>{props.des}</p>
+                <p>{props.short_description}</p>
                 <div className="flex flex-col laptop:flex-row gap-3">
                   <Button
                     variant="outlined"
@@ -104,7 +101,7 @@ export default function MarketItem(props) {
             <div className="flex flex-col justify-between w-full laptop:w-3/4  font-main">
               <div className="flex justify-between">
                 <div className="flex flex-col gap-2">
-                  <h3 className="font-main text-medium">{props.title}</h3>
+                  <h3 className="font-main text-medium">{props.name}</h3>
                   <h2 className="text-small-heading">{props.price} MAD /1</h2>
                 </div>
               </div>
@@ -156,9 +153,9 @@ export default function MarketItem(props) {
 }
 
 MarketItem.propTypes = {
-  image: PropTypes.string,
+  images: PropTypes.string,
   price: PropTypes.string,
-  title: PropTypes.string,
-  mark: PropTypes.string,
-  des: PropTypes.string,
+  name: PropTypes.string,
+  brand: PropTypes.string,
+  short_description: PropTypes.string,
 };
