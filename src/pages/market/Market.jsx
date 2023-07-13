@@ -12,17 +12,16 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import IconButton from "@mui/material/IconButton";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import TextField from "@mui/material/TextField";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 import Pagination from "@mui/material/Pagination";
-import PaginationItem from "@mui/material/PaginationItem";
+import productStore from "../../store/ProductStore";
 
 export default function Market() {
+  const store = productStore();
   const [open, setOpen] = useState(false);
-  const [addItem, setAddItem] = useState(false);
-  const [quantite, setQuantite] = useState("");
+
   const handleOpen = () => setOpen(true);
-  const [pageNum = 1, setPageNum] = useState();
-  const [pageSize, setPageSize] = useState(25);
-  const [pageCount, setPageCount] = useState();
   const handleClose = () => setOpen(false);
   const style = {
     position: "absolute",
@@ -33,28 +32,19 @@ export default function Market() {
     p: 4,
   };
 
-  const totale = (event) => {
-    setQuantite(event.target.value);
-  };
-
-  const [products, setProducts] = useState();
+  useEffect(() => {
+    store.fetchProducts();
+    return () => {
+      return false;
+    };
+  }, [store.pageNum]);
 
   useEffect(() => {
-    fetchProducts();
-  }, [pageNum]);
-
-  const fetchProducts = async () => {
-    const res = await axios.get(
-      `https://srv2.aptusmaroc.com/products/?page_size=${pageSize}&page_num=${pageNum}`
-    );
-    setProducts(res.data.data);
-    const itemCount = res.data.pagination.prev_page + 1;
-    setPageCount(itemCount);
-  };
-
-  const handleChange = (e, p) => {
-    setPageNum(p);
-  };
+    store.fetchProductsOnce();
+    return () => {
+      return false;
+    };
+  }, [store.products]);
 
   return (
     <div className="font-main py-10 px-3 flex flex-col justify-center tablet:px-8 tablet:justify-start items-center gap-12 laptop:px-0 ">
@@ -64,39 +54,68 @@ export default function Market() {
       </div>
       <div
         style={{
-          gridTemplateColumns: "repeat( auto-fit, minmax(200px, 1fr) )",
+          gridTemplateColumns: "repeat( auto-fit, minmax(250px, 280px) )",
         }}
         className="grid grid-cols-4 justify-start gap-8 w-full"
       >
-        {products &&
-          products.map((item, index) => {
+        {store.searchedProducts &&
+          store.searchedProducts.map((item, index) => {
             return (
               <>
                 <div
                   key={index}
-                  className="flex flex-col gap-3 bg-white dark:bg-dark rounded p-4 max-w-sm cursor-pointer hover:scale-105 duration-300 hover:shadow-sm"
+                  className="h-96 flex flex-col justify-between gap-3 bg-white dark:bg-dark rounded p-2 max-w-sm cursor-pointer hover:scale-105 duration-300 hover:shadow-sm"
                   onClick={handleOpen}
                 >
-                  {/* <div
-                    className={`h-44 rounded  bg-contain bg-no-repeat bg-center bg-[url('https://srv2.aptusmaroc.com/${item.images[0].link}')]`}
-                  ></div> */}
-                  <img
-                    src={`https://srv2.aptusmaroc.com/${item.images[0].link}`}
-                    alt=""
-                  />
-                  <div className="flex justify-between dark:text-slate-100">
-                    <div>
-                      <h1>{item.name}</h1>
-                      <h3 className="font-semibold"> {item.price} MAD</h3>
+                  <div
+                    style={{
+                      backgroundImage: `url(https://srv2.aptusmaroc.com/${item.images[0].link})`,
+                    }}
+                    className={`h-52 rounded  bg-cover bg-no-repeat bg-center `}
+                  ></div>
+                  <div className="flex flex-col gap-4 justify-between dark:text-slate-100 p-2 ">
+                    <div className="flex flex-col gap-2">
+                      <h1 className="whitespace-nowrap text-ellipsis overflow-hidden">
+                        {item.name}
+                      </h1>
+                      <h3 className="font-semibold whitespace-nowrap">
+                        {" "}
+                        {item.price} MAD
+                      </h3>
+                    </div>
+                    <div className="flex self-end gap-4">
+                      <IconButton
+                        aria-label="Save"
+                        size="large"
+                        onClick={() => store.handleSaved(item._id)}
+                      >
+                        {store.savedItemId.includes(item._id) ? (
+                          <BookmarkIcon fontSize="inherit" color="warning" />
+                        ) : (
+                          <BookmarkBorderIcon
+                            fontSize="inherit"
+                            color="warning"
+                          />
+                        )}
+                      </IconButton>
+                      <Button
+                        component={Link}
+                        to=""
+                        variant="contained"
+                        className="btn btn-contained"
+                        endIcon={<ShoppingCartIcon />}
+                      >
+                        Acheter
+                      </Button>
                     </div>
 
-                    <IconButton
+                    {/* <IconButton
                       component={Link}
                       to="/confirmer"
                       className="self-end"
                     >
                       <ShoppingCartIcon color="warning" />
-                    </IconButton>
+                    </IconButton> */}
                   </div>
                 </div>
 
@@ -210,9 +229,9 @@ export default function Market() {
       </div>
       <Pagination
         color="warning"
-        onChange={handleChange}
+        onChange={store.handleChange}
         size="large"
-        count={pageCount}
+        count={store.pageCount}
         variant="outlined"
         shape="rounded"
       />

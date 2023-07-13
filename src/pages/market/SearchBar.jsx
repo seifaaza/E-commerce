@@ -1,8 +1,7 @@
 import { styled, alpha } from "@mui/material/styles";
-
 import InputBase from "@mui/material/InputBase";
-
 import SearchIcon from "@mui/icons-material/Search";
+import productStore from "../../store/ProductStore";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -47,8 +46,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchBar() {
+  const store = productStore();
+
   return (
-    <Search>
+    <Search onChange={store.handleSearch}>
       <SearchIconWrapper>
         <SearchIcon />
       </SearchIconWrapper>

@@ -14,12 +14,13 @@ export default function Header() {
           Satisfait ou refait
         </h2>
         <p className="text-small-heading max-w-lg tablet:text-lg dark:text-slate-300">
-          Plateforme en ligne facile à utiliser, qui vous permet d&apos;accéder à nos
-          produits et services de dépannage et petits travaux en quelques
+          Plateforme en ligne facile à utiliser, qui vous permet d&apos;accéder
+          à nos produits et services de dépannage et petits travaux en quelques
           cliques{" "}
         </p>
         <div className="flex flex-col w-fit  tablet:flex-row max-w-xs tablet:max-w-none mt-2 justify-center gap-4 tablet:gap-4 tablet:justify-start laptop:mt-4 whitespace-nowrap">
           <Button
+            size="large"
             component={Link}
             to=""
             variant="contained"
@@ -29,6 +30,7 @@ export default function Header() {
             Demander un service
           </Button>
           <Button
+            size="large"
             component={Link}
             to=""
             variant="outlined"

@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { navData } from "./navData";
 import MenuItems from "./MenuItems";
 import SwitchMode from "./SwitchMode";
