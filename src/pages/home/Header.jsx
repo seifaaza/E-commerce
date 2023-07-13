@@ -18,7 +18,7 @@ export default function Header() {
           à nos produits et services de dépannage et petits travaux en quelques
           cliques{" "}
         </p>
-        <div className="flex flex-col w-fit  tablet:flex-row max-w-xs tablet:max-w-none mt-2 justify-center gap-4 tablet:gap-4 tablet:justify-start laptop:mt-4 whitespace-nowrap">
+        <div className="flex flex-row max-w-md tablet:max-w-none mt-2 justify-center gap-4 tablet:gap-4 tablet:justify-start laptop:mt-4 whitespace-nowrap">
           <Button
             size="large"
             component={Link}
@@ -29,7 +29,7 @@ export default function Header() {
           >
             Demander un service
           </Button>
-          <Button
+          {/* <Button
             size="large"
             component={Link}
             to=""
@@ -38,7 +38,7 @@ export default function Header() {
             endIcon={<SpeedIcon />}
           >
             Diagnostic
-          </Button>
+          </Button> */}
         </div>
       </div>
       <img src="/assets/images/design.png" alt="" className="image-size" />
