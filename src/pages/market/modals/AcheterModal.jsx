@@ -46,8 +46,8 @@ export default function DeleteModel() {
               label="Quantité"
               variant="outlined"
             />
-            <div>
-              <h1>Totale :</h1> <p className="text-xl font-medium">200 MAD</p>
+            <div className="dark:text-white">
+              <h1>Totale :</h1> <p className="text-xl font-medium ">200 MAD</p>
             </div>
           </div>
           <div className="flex flex-col tablet:flex-row justify-center gap-4 pt-3">
