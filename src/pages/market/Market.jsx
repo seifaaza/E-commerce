@@ -28,6 +28,8 @@ export default function Market() {
     left: "50%",
     transform: "translate(-50%, -50%)",
     bgcolor: "background.paper",
+    maxHeight: "90%",
+    minHeight: "fit-content",
   };
 
   useEffect(() => {
@@ -104,7 +106,7 @@ export default function Market() {
       >
         <Box
           sx={style}
-          className="p-5 shadow-md rounded flex flex-col laptop:flex-row w-5/6 tablet:w-2/4 h-fit justify-between dark:bg-slate-900"
+          className="p-5 shadow-md rounded flex flex-col laptop:flex-row w-5/6 tablet:w-3/4 laptop:w-2/4  justify-between dark:bg-slate-900 "
         >
           {store.buyModal ? <AcheterModal /> : <ShowProductModal />}
         </Box>

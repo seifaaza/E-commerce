@@ -368,3 +368,21 @@ body {
   display: none !important;
 }
 
+/* .css-heg063-MuiTabs-flexContainer{
+  display: flex !important;
+  justify-content: center !important;
+} */
+
+.css-11yukd5-MuiTabs-indicator{
+  background-color: var(--orange-500) !important;
+}
+.css-1a4cg4j-MuiButtonBase-root-MuiTab-root.Mui-selected{
+  color: var(--orange-500) !important;
+  @apply  dark:text-orange-500 !important
+}
+.css-1a4cg4j-MuiButtonBase-root-MuiTab-root{
+  @apply text-slate-700 font-main dark:text-white !important
+}
+.css-1dqgi2u-MuiTabPanel-root, .css-k05f6n-MuiTabPanel-root, .css-13xfq8m-MuiTabPanel-root, .MuiTabPanel-root{
+  padding: 0 !important;
+}
