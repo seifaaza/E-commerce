@@ -10,6 +10,10 @@ const productStore = create((set) => ({
   saved: false,
   savedItemId: [],
 
+  marketModal: false,
+
+  buyModal: false,
+
   searchedProducts: [],
 
   handleSaved: (itemId) => {
@@ -20,6 +24,24 @@ const productStore = create((set) => ({
       };
     });
     console.log(savedItemId);
+  },
+
+  handleOpen: () => {
+    set({ marketModal: true, buyModal: false });
+  },
+
+  handleClose: () => {
+    set({ marketModal: false });
+  },
+
+  buyModalSwitch: (itemId) => {
+    const { buyModal } = productStore.getState();
+    set({ buyModal: true });
+    console.log(buyModal);
+  },
+
+  showModalSwitch: () => {
+    set({ buyModal: false });
   },
 
   fetchProducts: async () => {
@@ -45,6 +67,7 @@ const productStore = create((set) => ({
     });
     set({ searchedProducts: searchedProducts });
   },
+
   fetchProductsOnce: () => {
     const { products } = productStore.getState();
     set({ searchedProducts: products });
