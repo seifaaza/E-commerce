@@ -12,7 +12,7 @@ import productStore from "../../../store/ProductStore";
 export default function DeleteModel() {
   const store = productStore();
   return (
-    <form className="p-2 flex flex-col gap-5 w-full text-slate-700 dark:text-slate-400 ">
+    <form className="p-2 flex flex-col gap-6 w-full text-slate-700 dark:text-slate-400 ">
       <IconButton
         aria-label="Retour"
         className="w-fit"
@@ -28,7 +28,7 @@ export default function DeleteModel() {
           }}
           className={`h-52 w-full tablet:w-2/4 rounded bg-cover bg-no-repeat bg-center `}
         ></div>
-        <div className=" flex flex-col  gap-2">
+        <div className=" flex flex-col gap-2">
           <h3 className="font-main text-medium dark:text-white">name</h3>
           <h2 className="text-small-heading dark:text-orange-500">
             200 MAD /1
@@ -38,7 +38,7 @@ export default function DeleteModel() {
 
       <div className="flex flex-col justify-between w-full  font-main">
         <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             <TextField
               color="warning"
               type="number"

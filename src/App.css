@@ -386,3 +386,15 @@ body {
 .css-1dqgi2u-MuiTabPanel-root, .css-k05f6n-MuiTabPanel-root, .css-13xfq8m-MuiTabPanel-root, .MuiTabPanel-root{
   padding: 0 !important;
 }
+
+.css-11qfo8z-MuiInputBase-root-MuiOutlinedInput-root{
+  @apply dark:text-slate-300 !important;
+}
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+@apply dark:border-slate-300 !important ;
+font-family: var(--font-main) !important;
+}
+.css-mk9tez-MuiFormLabel-root-MuiInputLabel-root, .css-1lczath-MuiFormLabel-root-MuiInputLabel-root.Mui-focused, .css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input, .css-1lczath-MuiFormLabel-root-MuiInputLabel-root{
+  @apply dark:text-slate-300 !important ;
+}
+
