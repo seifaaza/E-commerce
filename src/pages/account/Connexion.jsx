@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SignUp from "./SignUp";
+import SignUp from "./Signup";
 import Login from "./Login";
 
 export default function Connexion() {

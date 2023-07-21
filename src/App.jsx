@@ -13,6 +13,7 @@ import Confirmer from "./pages/confirmer/Confimer";
 import Diagnostic from "./pages/diagnostic/Diagnostic";
 import Market from "./pages/market/Market";
 import Connexion from "./pages/account/Connexion";
+import RequireAuth from "./pages/auth/RequireAuth";
 
 function App() {
   // arrow up button
@@ -39,11 +40,20 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/market" element={<Market />} />
           <Route path="/demander-un-service" element={<Confirmer />} />
-          <Route path="/confirmer" element={<Confirmer />} />
+          <Route path="/connexion" element={<Connexion />} />
           <Route path="/diagnostic" element={<Diagnostic />} />
           <Route path="/contactez-nous" element={<Contactez />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/connexion" element={<Connexion />} />
+
+          <Route
+            path="/confirmer"
+            element={
+              <RequireAuth>
+                {" "}
+                <Confirmer />{" "}
+              </RequireAuth>
+            }
+          />
           <Route path="*" element={<Error />} />
         </Routes>
       </div>

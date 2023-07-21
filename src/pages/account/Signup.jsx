@@ -25,53 +25,48 @@ export default function SignUp({ SignSwitch }) {
   //   };
 
   const [passwordVisibility, setPasswordVisibility] = useState("invisible");
+  const [confirmPasswordVisibility, setConfirmPasswordVisibility] =
+    useState("invisible");
   return (
     <form
       //   onSubmit={handleSignUp}
       encType="multipart/form-data"
       className="flex flex-col gap-5 w-full text-slate-700 laptop:max-w-sm"
     >
-      <h1 className="text-3xl text-center dark:text-white">Sign Up</h1>
-      <TextField
-        // value={store.signUpForm.fullName}
-        // onChange={store.updateSignupForm}
-        name="fullName"
-        type="text"
-        color="secondary"
-        id="outlined-textarea"
-        label="Full name"
-        placeholder="Your full name"
-        required
-      />{" "}
+      <h1 className="text-3xl text-center dark:text-white">Inscrivez vous</h1>
       <TextField
         // error={store.emailError ? true : false}
         // value={store.signUpForm.email}
         // onChange={store.updateSignupForm}
-        name="email"
-        type="text"
+        placeholder="Votre username"
         // color={store.emailError ? "error" : "secondary"}
+        color="warning"
+        type="text"
         id="outlined-textarea"
+        label="Username"
         // label={store.emailError ? "This e-mail is already used ! " : "E-mail"}
-        placeholder="Your E-mail"
+        variant="outlined"
         required
-      />{" "}
+      />
+
       <FormControl variant="outlined" required>
-        <InputLabel color="secondary" htmlFor="outlined-adornment-password">
-          Password
+        <InputLabel color="warning" htmlFor="outlined-adornment-password">
+          Mot de passe
         </InputLabel>
         <OutlinedInput
           name="password"
           //   value={store.signUpForm.password}
           //   onChange={store.updateSignupForm}
           id="outlined-adornment-password"
-          type={passwordVisibility == "visible" ? "test" : "password"}
-          label="Password"
-          placeholder="Your password"
-          color="secondary"
+          type={passwordVisibility == "visible" ? "text" : "password"}
+          label="Mot de passe"
+          placeholder="Votre mot de passe"
+          color="warning"
           required
           endAdornment={
             <InputAdornment position="end">
               <IconButton
+                className="dark:text-slate-300 hover:dark:text-white"
                 aria-label="toggle password visibility"
                 onClick={() => {
                   passwordVisibility == "invisible"
@@ -90,6 +85,42 @@ export default function SignUp({ SignSwitch }) {
           }
         />
       </FormControl>
+      <FormControl variant="outlined" required>
+        <InputLabel color="warning" htmlFor="outlined-adornment-password">
+          Confirmer
+        </InputLabel>
+        <OutlinedInput
+          name="confimPassword"
+          //   value={store.signUpForm.password}
+          //   onChange={store.updateSignupForm}
+          id="outlined-adornment-password"
+          type={confirmPasswordVisibility == "visible" ? "text" : "password"}
+          label="Confirmer"
+          placeholder="Confirmer votre mot de passe"
+          color="warning"
+          required
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton
+                className="dark:text-slate-300 hover:dark:text-white"
+                aria-label="toggle password visibility"
+                onClick={() => {
+                  confirmPasswordVisibility == "invisible"
+                    ? setConfirmPasswordVisibility("visible")
+                    : setConfirmPasswordVisibility("invisible");
+                }}
+                edge="end"
+              >
+                {confirmPasswordVisibility === "visible" ? (
+                  <VisibilityIcon />
+                ) : (
+                  <VisibilityOffIcon />
+                )}
+              </IconButton>
+            </InputAdornment>
+          }
+        />
+      </FormControl>
       <div className="flex gap-4">
         <Button
           variant="outlined"
@@ -98,7 +129,7 @@ export default function SignUp({ SignSwitch }) {
           className="btn btn-outlined  grow"
           onClick={() => SignSwitch("login")}
         >
-          Login
+          Connecter
         </Button>
         <Button
           variant="contained"
@@ -107,7 +138,7 @@ export default function SignUp({ SignSwitch }) {
           className="btn btn-contained grow"
           type="submit"
         >
-          Sign Up
+          Inscriver
         </Button>
       </div>
     </form>

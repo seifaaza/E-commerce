@@ -11,56 +11,59 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import IconButton from "@mui/material/IconButton";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-// import authStore from "../../stores/AuthStore";
+import authStore from "../../store/AuthStore";
 import { useNavigate } from "react-router-dom";
 
 export default function Login({ SignSwitch }) {
-//   const store = authStore();
-//   const navigate = useNavigate();
+  const store = authStore();
+  const navigate = useNavigate();
 
-//   const handleLogin = async (e) => {
-//     e.preventDefault();
-//     await store.login();
-//     navigate("/profile");
-//   };
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    await store.login();
+    navigate("/confirmer");
+  };
 
   const [passwordVisibility, setPasswordVisibility] = useState("invisible");
 
   return (
     <form
-    //   onSubmit={handleLogin}
+      onSubmit={handleLogin}
       encType="multipart/form-data"
       className="flex flex-col gap-5 w-full text-slate-700 laptop:max-w-sm"
     >
-      <h1 className="text-3xl text-center dark:text-white">Login</h1>
+      <h1 className="text-3xl text-center dark:text-white">Connectez vous</h1>
+
       <TextField
-        // onChange={store.updateLoginForm}
-        // value={store.loginForm.email}
-        name="email"
+        name="username"
+        onChange={store.updateLoginForm}
+        value={store.loginForm.username}
+        placeholder="Votre username"
+        color="warning"
         type="text"
-        color="secondary"
         id="outlined-textarea"
-        label="E-mail"
-        placeholder="Your E-mail"
+        label="Username"
+        variant="outlined"
         required
-      />{" "}
+      />
       <FormControl variant="outlined" required>
-        <InputLabel color="secondary" htmlFor="outlined-adornment-password">
-          Password
+        <InputLabel color="warning" htmlFor="outlined-adornment-password">
+          Mot de passe
         </InputLabel>
         <OutlinedInput
           name="password"
-        //   onChange={store.updateLoginForm}
-        //   value={store.loginForm.password}
+          onChange={store.updateLoginForm}
+          value={store.loginForm.password}
           id="outlined-adornment-password"
           type={passwordVisibility == "visible" ? "test" : "password"}
-          label="Password"
-          placeholder="Your password"
-          color="secondary"
+          label="Mot de passe"
+          placeholder="Votre mot de passe"
+          color="warning"
           required
           endAdornment={
             <InputAdornment position="end">
               <IconButton
+                className="dark:text-slate-300 hover:dark:text-white"
                 aria-label="toggle password visibility"
                 onClick={() => {
                   passwordVisibility == "invisible"
@@ -87,7 +90,7 @@ export default function Login({ SignSwitch }) {
           className="btn btn-outlined grow"
           onClick={() => SignSwitch("signUp")}
         >
-          Sign Up
+          Inscriver
         </Button>
         <Button
           type="submit"
@@ -96,11 +99,11 @@ export default function Login({ SignSwitch }) {
           startIcon={<LoginIcon />}
           className="btn btn-contained grow"
         >
-          Login
+          Connecter
         </Button>
       </div>
       <span
-        // className={`text-red-600 ${store.loginError ? "block" : "hidden"} `}
+      // className={`text-red-600 ${store.loginError ? "block" : "hidden"} `}
       >
         Email or password incorrect !
       </span>
