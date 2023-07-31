@@ -5,8 +5,10 @@ import SwitchMode from "./SwitchMode";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import mainStore from "../store/MainStore";
 
 export default function Navbar() {
+  const store = mainStore();
   const ScrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -14,7 +16,6 @@ export default function Navbar() {
       behavior: "smooth",
     });
   };
-  const [navOpen, setNavOpen] = useState(false);
   const [showCTA, setShowCTA] = useState(false);
   const show = () => {
     window.scrollY >= 700 ? setShowCTA(true) : setShowCTA(false);
@@ -30,15 +31,15 @@ export default function Navbar() {
               alt=""
               className="h-12"
               onClick={() => {
-                setNavOpen(false);
+                store.handleNavOpen(false);
               }}
             />
           </Link>
           <div
-            className={`cursor-pointer nav-icon ${navOpen ? "nav-open" : ""}`}
-            onClick={() => {
-              setNavOpen(!navOpen);
-            }}
+            className={`cursor-pointer nav-icon ${
+              store.navOpen ? "nav-open" : ""
+            }`}
+            onClick={store.handleNavOpen}
           >
             <span></span>
             <span></span>
@@ -47,7 +48,7 @@ export default function Navbar() {
         </div>
         <div
           className={`flex flex-col justify-start duration-500 transition-all ${
-            navOpen ? "h-screen pt-10" : "h-0"
+            store.navOpen ? "h-screen pt-10" : "h-0"
           } laptop:h-fit laptop:p-0 laptop:transition-none`}
         >
           <ul className="overflow-scroll remove-scrollbar laptop:overflow-visible laptop:max-h-fit flex flex-col laptop:flex-row gap-8 laptop:p-0 laptop:w-fit justify-between items-center text-start whitespace-nowrap text-xl laptop:text-sm font-medium">

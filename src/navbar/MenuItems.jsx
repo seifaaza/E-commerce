@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import Dropdown from "./Dropdown";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Link, NavLink } from "react-router-dom";
+import mainStore from "../store/MainStore";
 
 const MenuItems = ({ items }) => {
+  const store = mainStore();
   const [dropdown, setDropdown] = useState(false);
   let ref = useRef();
 
@@ -40,11 +42,11 @@ const MenuItems = ({ items }) => {
       {!items.url && items.submenu ? (
         <>
           <button
-            className="hover:text-orange-500"
+            className="hover:text-orange-500 "
             type="button"
             aria-haspopup="menu"
             aria-expanded={dropdown ? "true" : "false"}
-            onClick={() => setDropdown(!dropdown)}
+            // onClick={() => setDropdown(!dropdown)}
           >
             <Link to={items.url}>
               {items.title}
@@ -59,7 +61,7 @@ const MenuItems = ({ items }) => {
       ) : items.url && items.submenu ? (
         <>
           <button
-            className="hover:text-orange-500"
+            className="hover:text-orange-500 "
             type="button"
             aria-haspopup="menu"
             aria-expanded={dropdown ? "true" : "false"}
@@ -77,8 +79,11 @@ const MenuItems = ({ items }) => {
         </>
       ) : (
         <NavLink
-          className="relative btn-hover btn-underline w-fit"
+          className="relative btn-hover btn-underline w-fit bg-black"
           to={items.url}
+          onClick={() => {
+            store.handleNavOpen(false);
+          }}
         >
           {items.title}
         </NavLink>
@@ -92,6 +97,5 @@ MenuItems.propTypes = {
   url: PropTypes.string,
   submenu: PropTypes.string,
 };
-
 
 export default MenuItems;

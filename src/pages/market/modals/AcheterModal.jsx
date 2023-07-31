@@ -42,7 +42,7 @@ export default function DeleteModel() {
             <TextField
               color="warning"
               type="number"
-              id="outlined-basic"
+              id="outlined-number"
               label="Quantité"
               variant="outlined"
             />
