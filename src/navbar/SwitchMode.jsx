@@ -1,30 +1,31 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import mainStore from "../store/MainStore";
 
 const SwitchMode = () => {
-  const [theme, setTheme] = useState("light");
+  const store = mainStore();
 
   useEffect(() => {
-    if (theme === "dark") {
+    if (store.theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
-  }, [theme]);
+  }, [store.theme]);
 
-  const handleThemeSwitch = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
-
-  const style = "cursor-pointer hover:text-orange-500";
+  // console.log(store.cookies.cookies.switchTheme);
 
   return (
-    <Link className={style} onClick={handleThemeSwitch}>
+    <Link
+      className="cursor-pointer hover:text-orange-500"
+      onClick={store.handleThemeSwitch}
+    >
       {" "}
       <span className="mr-1 laptop:hidden">Thème </span>
-      {theme === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
+      {store.theme === "light" ? <DarkModeIcon /> : <LightModeIcon />}
+      {/* {console.log(store.cookies.cookies.switchTheme)} */}
     </Link>
   );
 };

@@ -5,7 +5,7 @@ const productStore = create((set) => ({
   products: null,
   pageNum: 1,
   pageSize: 25,
-  pageCount: null,
+  pageCount: 1,
 
   saved: false,
   savedItemId: [],
@@ -23,7 +23,7 @@ const productStore = create((set) => ({
         savedItemId: [...state.savedItemId, itemId],
       };
     });
-    console.log(savedItemId);
+    // console.log(savedItemId);
   },
 
   handleOpen: () => {
@@ -37,7 +37,7 @@ const productStore = create((set) => ({
   buyModalSwitch: (itemId) => {
     const { buyModal } = productStore.getState();
     set({ buyModal: true });
-    console.log(buyModal);
+    // console.log(buyModal);
   },
 
   showModalSwitch: () => {
@@ -71,7 +71,7 @@ const productStore = create((set) => ({
   fetchProductsOnce: () => {
     const { products } = productStore.getState();
     set({ searchedProducts: products });
-    console.log(products);
+    // console.log(products);
   },
 }));
 

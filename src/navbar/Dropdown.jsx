@@ -1,14 +1,15 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import MenuItems from "./MenuItems";
 
 const Dropdown = ({ submenus, dropdown }) => {
   return (
-    <ul className={`bg-white dark:bg-slate-950 flex flex-col items-center laptop:items-start dropdown ${dropdown ? "show transition duration-200" : ""}`}>
+    <ul
+      className={`bg-white dark:bg-slate-950 flex flex-col items-center laptop:items-start dropdown ${
+        dropdown ? "show transition duration-200" : ""
+      }`}
+    >
       {submenus.map((submenu, index) => (
-        <MenuItems
-          items={submenu}
-          key={index}
-        />
+        <MenuItems items={submenu} key={index} />
       ))}
     </ul>
   );
@@ -16,8 +17,7 @@ const Dropdown = ({ submenus, dropdown }) => {
 
 Dropdown.propTypes = {
   submenus: PropTypes.array,
-  dropdown: PropTypes.array,
+  // dropdown: PropTypes.boolean,
 };
-
 
 export default Dropdown;

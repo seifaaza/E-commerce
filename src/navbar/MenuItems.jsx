@@ -79,7 +79,7 @@ const MenuItems = ({ items }) => {
         </>
       ) : (
         <NavLink
-          className="relative btn-hover btn-underline w-fit bg-black"
+          className="relative btn-hover btn-underline w-fit"
           to={items.url}
           onClick={() => {
             store.handleNavOpen(false);
@@ -93,7 +93,7 @@ const MenuItems = ({ items }) => {
 };
 
 MenuItems.propTypes = {
-  items: PropTypes.string,
+  items: PropTypes.object,
   url: PropTypes.string,
   submenu: PropTypes.string,
 };

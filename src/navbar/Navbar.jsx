@@ -10,6 +10,7 @@ import mainStore from "../store/MainStore";
 export default function Navbar() {
   const store = mainStore();
   const ScrollToTop = () => {
+    store.handleNavClose(false);
     window.scrollTo({
       top: 0,
       left: 0,
@@ -26,14 +27,7 @@ export default function Navbar() {
       <div className="main-container flex flex-col flex-wrap laptop:items-center laptop:flex-row justify-between dark:text-white">
         <div className="flex justify-between">
           <Link to="/" onClick={ScrollToTop}>
-            <img
-              src="/assets/svg/QB-logo.svg"
-              alt=""
-              className="h-12"
-              onClick={() => {
-                store.handleNavOpen(false);
-              }}
-            />
+            <img src="/assets/svg/QB-logo.svg" alt="" className="h-12" />
           </Link>
           <div
             className={`cursor-pointer nav-icon ${
@@ -47,8 +41,8 @@ export default function Navbar() {
           </div>
         </div>
         <div
-          className={`flex flex-col justify-start duration-500 transition-all ${
-            store.navOpen ? "h-screen pt-10" : "h-0"
+          className={`flex flex-col justify-start  ${
+            store.navOpen ? "h-screen pt-10 duration-500 transition-all" : "h-0"
           } laptop:h-fit laptop:p-0 laptop:transition-none`}
         >
           <ul className="overflow-scroll remove-scrollbar laptop:overflow-visible laptop:max-h-fit flex flex-col laptop:flex-row gap-8 laptop:p-0 laptop:w-fit justify-between items-center text-start whitespace-nowrap text-xl laptop:text-sm font-medium">

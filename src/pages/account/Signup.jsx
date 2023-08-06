@@ -11,33 +11,33 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import IconButton from "@mui/material/IconButton";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-// import authStore from "../../stores/AuthStore";
+import authStore from "../../store/AuthStore";
 import { useNavigate } from "react-router-dom";
 
 export default function SignUp({ SignSwitch }) {
-  //   const store = authStore();
+  const store = authStore();
   const navigate = useNavigate();
 
-  //   const handleSignUp = async (e) => {
-  //     e.preventDefault();
-  //     await store.signup();
-  //     navigate("/profile");
-  //   };
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    await store.signup();
+    navigate("/confirmer");
+  };
 
   const [passwordVisibility, setPasswordVisibility] = useState("invisible");
-  const [confirmPasswordVisibility, setConfirmPasswordVisibility] =
-    useState("invisible");
+
   return (
     <form
-      //   onSubmit={handleSignUp}
+      onSubmit={handleSignup}
       encType="multipart/form-data"
       className="flex flex-col gap-5 w-full text-slate-700 laptop:max-w-sm"
     >
       <h1 className="text-3xl text-center dark:text-white">Inscrivez vous</h1>
       <TextField
+        name="username"
         // error={store.emailError ? true : false}
-        // value={store.signUpForm.email}
-        // onChange={store.updateSignupForm}
+        onChange={store.updateSignupForm}
+        value={store.signupForm.username}
         placeholder="Votre username"
         // color={store.emailError ? "error" : "secondary"}
         color="warning"
@@ -55,8 +55,8 @@ export default function SignUp({ SignSwitch }) {
         </InputLabel>
         <OutlinedInput
           name="password"
-          //   value={store.signUpForm.password}
-          //   onChange={store.updateSignupForm}
+          onChange={store.updateSignupForm}
+          value={store.signupForm.password}
           id="outlined-adornment-password"
           type={passwordVisibility == "visible" ? "text" : "password"}
           label="Mot de passe"
@@ -85,7 +85,7 @@ export default function SignUp({ SignSwitch }) {
           }
         />
       </FormControl>
-      <FormControl variant="outlined" required>
+      {/* <FormControl variant="outlined" required>
         <InputLabel color="warning" htmlFor="outlined-adornment-password">
           Confirmer
         </InputLabel>
@@ -120,7 +120,7 @@ export default function SignUp({ SignSwitch }) {
             </InputAdornment>
           }
         />
-      </FormControl>
+      </FormControl> */}
       <div className="flex gap-4">
         <Button
           variant="outlined"
