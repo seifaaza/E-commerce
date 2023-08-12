@@ -102,11 +102,11 @@ export default function Login({ SignSwitch }) {
           Connecter
         </Button>
       </div>
-      <span
-      // className={`text-red-600 ${store.loginError ? "block" : "hidden"} `}
+      {/* <span
+      className={`text-red-600 ${store.loginError ? "block" : "hidden"} `}
       >
         Email or password incorrect !
-      </span>
+      </span> */}
     </form>
   );
 }

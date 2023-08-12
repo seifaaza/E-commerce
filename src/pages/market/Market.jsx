@@ -68,7 +68,9 @@ export default function Market() {
               >
                 <div
                   style={{
-                    backgroundImage: `url(https://srv2.aptusmaroc.com/${item.images[0].link})`,
+                    backgroundImage: `url(https://srv2.aptusmaroc.com/${
+                      item.images ? item.images[0].link : "null"
+                    })`,
                   }}
                   className={`h-52 rounded  bg-cover bg-no-repeat bg-center `}
                 ></div>
