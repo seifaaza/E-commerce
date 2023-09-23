@@ -14,10 +14,9 @@ import Diagnostic from "./pages/diagnostic/Diagnostic";
 import Market from "./pages/market/Market";
 import Connexion from "./pages/account/Connexion";
 import RequireAuth from "./pages/auth/RequireAuth";
+import { useState } from "react";
 
 function App() {
-  // arrow up button
-
   // const [showArrowUp, setShowArrowUp] = useState(false);
   // const show = () => {
   //   window.scrollY >= 1000 ? setShowArrowUp(true) : setShowArrowUp(false);

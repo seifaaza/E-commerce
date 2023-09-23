@@ -58,6 +58,7 @@ export default function Market() {
         }}
         className="grid grid-cols-4 justify-start gap-8 w-full"
       >
+        {" "}
         {store.searchedProducts &&
           store.searchedProducts.map((item, index) => {
             return (

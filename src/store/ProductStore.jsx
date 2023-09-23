@@ -47,7 +47,7 @@ const productStore = create((set) => ({
   fetchProducts: async () => {
     const { pageNum, pageSize } = productStore.getState();
     const res = await axios.get(
-      `https://srv2.aptusmaroc.com/products/?page_size=${pageSize}&page_num=${pageNum}`
+      `https://srv2.aptusmaroc.com/products/public?page_size=${pageSize}`
     );
     set({
       products: res.data.data,
