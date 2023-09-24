@@ -100,16 +100,13 @@ export default function DeleteModel() {
                     {rows.map((row, index) => (
                       <TableRow key={index}>
                         <TableCell className="font-main dark:text-slate-300">
-                          {store.product.features[0].value}{" "}
-                          {store.product.features[0].unit}
+                          {row.Longueur}
                         </TableCell>
                         <TableCell className="font-main dark:text-slate-300">
-                          {store.product.features[1].value}{" "}
-                          {store.product.features[1].unit}
+                          {row.Largeur}
                         </TableCell>
                         <TableCell className="font-main dark:text-slate-300">
-                          {store.product.features[2].value}{" "}
-                          {store.product.features[2].unit}
+                          {row.Hauteur}
                         </TableCell>
                       </TableRow>
                     ))}
