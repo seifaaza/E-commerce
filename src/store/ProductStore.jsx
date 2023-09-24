@@ -3,6 +3,7 @@ import axios from "axios";
 
 const productStore = create((set) => ({
   products: null,
+  product: null,
   pageNum: 1,
   pageSize: 25,
   pageCount: 1,
@@ -72,6 +73,19 @@ const productStore = create((set) => ({
     const { products } = productStore.getState();
     set({ searchedProducts: products });
     // console.log(products);
+  },
+
+  fetchProduct: async (_id) => {
+    // const res = await axios.delete(`/team/${_id}`);
+    const res = await axios.get(
+      `https://srv2.aptusmaroc.com/products/public/${_id}`
+    );
+    set({
+      product: res.data,
+    });
+    const { product, handleOpen } = productStore.getState();
+    handleOpen();
+    console.log(product);
   },
 }));
 

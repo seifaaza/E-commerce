@@ -65,7 +65,8 @@ export default function Market() {
               <div
                 key={index}
                 className="h-96 flex flex-col justify-between gap-3 bg-white dark:bg-dark rounded p-2 max-w-sm cursor-pointer hover:scale-105 duration-300 hover:shadow-sm"
-                onClick={store.handleOpen}
+                // onClick={store.handleOpen}
+                onClick={() => store.fetchProduct(item._id)}
               >
                 <div
                   style={{

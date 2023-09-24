@@ -37,7 +37,9 @@ export default function DeleteModel() {
     <form className="flex flex-col gap-2 w-full text-slate-700 dark:text-slate-400 ">
       <div
         style={{
-          backgroundImage: `url(https://srv2.aptusmaroc.com/media/images/product/topview-wh-tf-web-big_1687792057.jpeg)`,
+          backgroundImage: `url(https://srv2.aptusmaroc.com/${
+            store.product.images ? store.product.images[0].link : "null"
+          })`,
         }}
         className={`h-60 tablet:h-80 rounded bg-cover bg-no-repeat bg-center `}
       ></div>
@@ -61,21 +63,17 @@ export default function DeleteModel() {
             >
               {" "}
               <div className="flex justify-between ">
-                <h3 className="font-main text-medium dark:text-white">name</h3>
-                <p className=" font-medium dark:text-orange-500">price MAD</p>
+                <h3 className="font-main text-medium dark:text-white">
+                  {store.product.name}
+                </h3>
+                <p className=" font-medium dark:text-orange-500">
+                  {store.product.price} MAD
+                </p>
               </div>
-              <h2 className="text-small-heading">Marque : brand</h2>
-              <p>
-                short_description Lorem ipsum, dolor sit amet consectetur
-                adipisicing elit. Voluptatem nemo odit ea, consectetur
-                laboriosam sapiente expedita praesentium sed officiis. Quas quod
-                dignissimos enim ut minima. Eum magni architecto adipisci?
-                Velit. short_description Lorem ipsum, dolor sit amet consectetur
-                adipisicing elit. Voluptatem nemo odit ea, consectetur
-                laboriosam sapiente expedita praesentium sed officiis. Quas quod
-                dignissimos enim ut minima. Eum magni architecto adipisci?
-                Velit.
-              </p>
+              <h2 className="text-small-heading">
+                Marque : {store.product.brand}
+              </h2>
+              <p>{store.product.short_description}</p>
             </TabPanel>
             <TabPanel
               value="2"
@@ -102,13 +100,16 @@ export default function DeleteModel() {
                     {rows.map((row, index) => (
                       <TableRow key={index}>
                         <TableCell className="font-main dark:text-slate-300">
-                          {row.Longueur}
+                          {store.product.features[0].value}{" "}
+                          {store.product.features[0].unit}
                         </TableCell>
                         <TableCell className="font-main dark:text-slate-300">
-                          {row.Largeur}
+                          {store.product.features[1].value}{" "}
+                          {store.product.features[1].unit}
                         </TableCell>
                         <TableCell className="font-main dark:text-slate-300">
-                          {row.Hauteur}
+                          {store.product.features[2].value}{" "}
+                          {store.product.features[2].unit}
                         </TableCell>
                       </TableRow>
                     ))}
