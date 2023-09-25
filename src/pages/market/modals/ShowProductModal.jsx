@@ -34,16 +34,16 @@ export default function DeleteModel() {
   };
 
   return (
-    <form className="flex flex-col gap-2 w-full text-slate-700 dark:text-slate-400 ">
+    <form className="flex flex-col laptop:flex-row gap-2 w-full text-slate-700 dark:text-slate-400 ">
       <div
         style={{
           backgroundImage: `url(https://srv2.aptusmaroc.com/${
             store.product.images ? store.product.images[0].link : "null"
           })`,
         }}
-        className={`h-60 tablet:h-80 rounded bg-cover bg-no-repeat bg-center `}
+        className={`h-60 laptop:h-full laptop:w-2/4 tablet:h-80 rounded bg-cover bg-no-repeat bg-center `}
       ></div>
-      <div className="p-2 tablet:p-5 flex flex-col justify-between w-full font-main gap-5">
+      <div className="p-2 tablet:p-5 flex flex-col justify-between w-full laptop:w-2/4 font-main gap-5">
         <Box>
           <TabContext value={value}>
             <Box className="pb-3">
@@ -58,7 +58,6 @@ export default function DeleteModel() {
             </Box>
             <TabPanel
               value="1"
-              sx={{ maxHeight: "8rem" }}
               className="flex flex-col gap-2 overflow-y-scroll"
             >
               {" "}
@@ -77,7 +76,6 @@ export default function DeleteModel() {
             </TabPanel>
             <TabPanel
               value="2"
-              sx={{ maxHeight: "6rem" }}
               className="flex flex-col gap-2 overflow-y-scroll"
             >
               {" "}
@@ -116,7 +114,7 @@ export default function DeleteModel() {
             </TabPanel>
           </TabContext>
         </Box>
-        <div className="flex flex-col tablet:flex-row justify-center gap-4 pt-3">
+        <div className="flex flex-col tablet:flex-row  justify-center gap-4 pt-3">
           <Button
             size="large"
             component={Link}

@@ -27,8 +27,6 @@ export default function Market() {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    bgcolor: "background.paper",
-    maxHeight: "90%",
     minHeight: "fit-content",
   };
 
@@ -107,10 +105,11 @@ export default function Market() {
         onClose={store.handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        className=""
       >
         <Box
           sx={style}
-          className="p-5 shadow-md rounded flex flex-col laptop:flex-row w-5/6 tablet:w-3/4 laptop:w-2/4  justify-between dark:bg-slate-900 "
+          className="p-4 shadow-md bg-white dark:bg-slate-900 rounded flex flex-col laptop:flex-row laptop:h-3/4 w-5/6 tablet:w-3/4 laptop:w-10/12  justify-between "
         >
           {store.buyModal ? <AcheterModal /> : <ShowProductModal />}
         </Box>
