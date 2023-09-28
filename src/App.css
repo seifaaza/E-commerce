@@ -444,8 +444,8 @@ font-family: var(--font-main) !important;
   text-align: center;
 }
 
-.css-e30pdq-MuiButtonBase-root-MuiIconButton-root{
-  @apply tablet:hidden !important
+@media (min-width: 640px) {
+  .css-e30pdq-MuiButtonBase-root-MuiIconButton-root{
+    display: none !important;
+  }
 }
-
-
