@@ -109,7 +109,7 @@ export default function Market() {
       >
         <Box
           sx={style}
-          className="p-4 shadow-md bg-white dark:bg-slate-900 rounded flex flex-col laptop:flex-row laptop:h-3/4 w-5/6 tablet:w-3/4 laptop:w-10/12  justify-between "
+          className="p-4 shadow-md bg-white dark:bg-slate-900 rounded flex flex-col laptop:flex-row w-5/6 tablet:w-3/4 laptop:w-10/12 desktop:w-8/12  justify-between "
         >
           {store.buyModal ? <AcheterModal /> : <ShowProductModal />}
         </Box>

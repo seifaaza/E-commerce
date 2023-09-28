@@ -398,3 +398,48 @@ font-family: var(--font-main) !important;
   @apply dark:text-slate-300 !important ;
 }
 
+.thumbs-wrapper, .carousel-status{
+  display: none;
+}
+@media (min-width: 1024px) {
+  .thumbs-wrapper{
+    display: block;
+  }
+}
+.control-dots li{
+  background-color: var(--orange-500) !important;
+  box-shadow: none !important;
+}
+.control-arrow:hover{
+  background: none !important;
+  opacity: .7 !important; 
+}
+
+.carousel .control-next.control-arrow:before {
+    border-left: 16px solid var(--orange-400) !important;
+    border-top: 16px solid transparent !important;
+    border-bottom: 16px solid transparent !important;
+}
+.carousel .control-prev.control-arrow:before {
+    border-right: 16px solid var(--orange-400) !important;
+    border-top: 16px solid transparent !important;
+    border-bottom: 16px solid transparent !important;
+    opacity: .8 !important;
+}
+
+.carousel .thumb.selected, .carousel .thumb {
+  border: 3px solid var(--orange-400) !important;
+  border-radius: 7px !important;
+  filter: none;
+}
+.carousel .thumb.selected, .carousel .thumb:hover {
+  border-radius: 7px !important;
+  filter: none;
+}
+.carousel .thumb {
+  border: 3px solid transparent !important;
+  filter: opacity(.8);
+}
+.carousel .thumbs {
+  text-align: center;
+}

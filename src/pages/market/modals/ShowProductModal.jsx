@@ -11,12 +11,12 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Box from "@mui/material/Box";
-import { styled } from "@mui/material/styles";
-import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function createData(Longueur, Largeur, Hauteur) {
   return { Longueur, Largeur, Hauteur };
@@ -34,19 +34,27 @@ export default function DeleteModel() {
   };
 
   return (
-    <form className="flex flex-col laptop:flex-row gap-2 w-full text-slate-700 dark:text-slate-400 ">
-      <div
-        style={{
-          backgroundImage: `url(https://srv2.aptusmaroc.com/${
-            store.product.images ? store.product.images[0].link : "null"
-          })`,
-        }}
-        className={`h-60 laptop:h-full laptop:w-2/4 tablet:h-80 rounded bg-cover bg-no-repeat bg-center `}
-      ></div>
-      <div className="p-2 tablet:p-5 flex flex-col justify-between w-full laptop:w-2/4 font-main gap-5">
+    <form className="flex flex-col laptop:flex-row laptop:gap-2 w-full text-slate-700 dark:text-slate-400 ">
+      <div className="box laptop:w-7/12">
+        <Carousel useKeyboardArrows={true}>
+          {store.product.images &&
+            store.product.images.map((el, index) => {
+              return (
+                <div key={index} className="slide ">
+                  <img
+                    src={`https://srv2.aptusmaroc.com/${el.link}`}
+                    className="rounded"
+                  />
+                </div>
+              );
+            })}
+        </Carousel>
+      </div>
+
+      <div className=" p-2 laptop:p-5 flex flex-col justify-between w-full laptop:w-2/4 font-main gap-5">
         <Box>
           <TabContext value={value}>
-            <Box className="pb-3">
+            <Box className="pb-5 laptop:pb-8">
               <TabList
                 textColor="secondary"
                 indicatorColor="secondary"
@@ -58,21 +66,21 @@ export default function DeleteModel() {
             </Box>
             <TabPanel
               value="1"
-              className="flex flex-col gap-2 overflow-y-scroll"
+              className="justify-start flex flex-col gap-2 laptop:gap-3 max-h-32 laptop:max-h-full overflow-y-scroll"
             >
               {" "}
-              <div className="flex justify-between ">
-                <h3 className="font-main text-medium dark:text-white">
+              <div className="flex justify-between flex-row laptop:flex-col-reverse ">
+                <h3 className="laptop:mt-2 font-medium text-small-heading laptop:text-medium dark:text-white">
                   {store.product.name}
                 </h3>
-                <p className=" font-medium dark:text-orange-500">
+                <p className=" font-medium text-small-heading text-orange-500">
                   {store.product.price} MAD
                 </p>
               </div>
               <h2 className="text-small-heading">
                 Marque : {store.product.brand}
               </h2>
-              <p>{store.product.short_description}</p>
+              <p>{store.product.description}</p>
             </TabPanel>
             <TabPanel
               value="2"
@@ -114,7 +122,7 @@ export default function DeleteModel() {
             </TabPanel>
           </TabContext>
         </Box>
-        <div className="flex flex-col tablet:flex-row  justify-center gap-4 pt-3">
+        <div className=" flex flex-col tablet:flex-row  justify-center gap-4 pt-3">
           <Button
             size="large"
             component={Link}
@@ -123,7 +131,7 @@ export default function DeleteModel() {
             className="btn btn-outlined"
             endIcon={<ShoppingCartIcon />}
           >
-            Ajouter au panier
+            Ajouter
           </Button>
           <Button
             size="large"
@@ -134,7 +142,7 @@ export default function DeleteModel() {
             endIcon={<ArrowForwardIcon />}
             onClick={() => store.buyModalSwitch(1)}
           >
-            Acheter maintenant
+            Acheter
           </Button>
         </div>
       </div>
