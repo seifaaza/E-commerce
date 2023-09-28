@@ -69,11 +69,11 @@ export default function DeleteModel() {
               className="justify-start flex flex-col gap-2 laptop:gap-3 max-h-32 laptop:max-h-80 desktop:max-h-full overflow-y-scroll"
             >
               {" "}
-              <div className="flex justify-between flex-row ">
+              <div className="flex flex-col-reverse justify-between tablet:flex-row ">
                 <h3 className="laptop:mt-2 font-medium text-small-heading laptop:text-medium dark:text-white">
                   {store.product.name}
                 </h3>
-                <p className=" font-medium text-3xl text-orange-500">
+                <p className=" font-medium text-2xl mb-2 tablet:text-3xl text-orange-500">
                   {store.product.price} MAD
                 </p>
               </div>
