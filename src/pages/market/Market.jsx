@@ -18,9 +18,12 @@ import AcheterModal from "./modals/AcheterModal";
 import ShowProductModal from "./modals/ShowProductModal";
 import Pagination from "@mui/material/Pagination";
 import productStore from "../../store/ProductStore";
+import mainStore from "../../store/MainStore";
+import ProductsView from "./ProductsView";
 
 export default function Market() {
   const store = productStore();
+  const princStore = mainStore();
 
   const style = {
     position: "absolute",
@@ -48,13 +51,19 @@ export default function Market() {
     <div className="font-main py-10 px-3 flex flex-col justify-center tablet:px-8 tablet:justify-start items-center gap-12 laptop:px-0 ">
       <div className="flex flex-col-reverse gap-3 tablet:flex-row justify-between w-full">
         <MarketFilter />
-        <SearchBar />
+        <span className="flex justify-between items-center">
+          <SearchBar />
+          <ProductsView />
+        </span>
       </div>
       <div
-        style={{
-          gridTemplateColumns: "repeat( auto-fit, minmax(250px, 280px) )",
-        }}
-        className="grid grid-cols-4 justify-start gap-8 w-full"
+        className={` 
+        ${
+          princStore.squareView
+            ? "grid grid-cols-2 tablet:grid tablet:grid-cols-main"
+            : "flex flex-col tablet:grid tablet:grid-cols-main "
+        }
+          justify-start gap-2 tablet:gap-8 w-full`}
       >
         {" "}
         {store.searchedProducts &&
@@ -62,8 +71,10 @@ export default function Market() {
             return (
               <div
                 key={index}
-                className="h-96 flex flex-col justify-between gap-3 bg-white dark:bg-dark rounded p-2 max-w-sm cursor-pointer hover:scale-105 duration-300 hover:shadow-sm"
-                // onClick={store.handleOpen}
+                className={`flex 
+                ${princStore.squareView ? "flex-col" : ""}
+                tablet:flex-col justify-between gap-3 bg-white dark:bg-dark rounded p-2  cursor-pointer hover:scale-105 duration-300 hover:shadow-sm
+                `}
                 onClick={() => store.fetchProduct(item._id)}
               >
                 <div
@@ -72,9 +83,15 @@ export default function Market() {
                       item.images ? item.images[0].link : "null"
                     })`,
                   }}
-                  className={`h-52 rounded  bg-cover bg-no-repeat bg-center `}
+                  className={`
+                  ${princStore.squareView ? "h-32" : "w-2/5 h-32"}
+                   tablet:w-full tablet:h-52 rounded  bg-cover bg-no-repeat bg-center `}
                 ></div>
-                <div className="flex flex-col gap-4 justify-between dark:text-slate-100 p-2 ">
+                <div
+                  className={`
+                ${princStore.squareView ? "" : "w-3/5 tablet:w-full"}
+                 flex flex-col gap-4 justify-between dark:text-slate-100 p-2 `}
+                >
                   <div className="flex flex-col gap-2">
                     <h1 className="whitespace-nowrap text-ellipsis overflow-hidden">
                       {item.name}

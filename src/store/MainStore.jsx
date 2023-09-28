@@ -5,8 +5,14 @@ import jwt from "jwt-decode";
 const mainStore = create((set) => ({
   navOpen: false,
   theme: "light",
+  squareView: false,
 
   cookies: new Cookies(),
+
+  changeProductsView: () => {
+    const { squareView } = mainStore.getState();
+    set({ squareView: !squareView });
+  },
 
   handleThemeSwitch: () => {
     const { theme, navOpen, cookies } = mainStore.getState();

@@ -35,7 +35,7 @@ export default function DeleteModel() {
 
   return (
     <form className="flex flex-col laptop:flex-row laptop:gap-2 w-full text-slate-700 dark:text-slate-400 ">
-      <div className="box laptop:w-7/12">
+      <div className="box w-full laptop:w-6/12 desktop:w-5/12">
         <Carousel useKeyboardArrows={true}>
           {store.product.images &&
             store.product.images.map((el, index) => {
@@ -66,14 +66,14 @@ export default function DeleteModel() {
             </Box>
             <TabPanel
               value="1"
-              className="justify-start flex flex-col gap-2 laptop:gap-3 max-h-32 laptop:max-h-full overflow-y-scroll"
+              className="justify-start flex flex-col gap-2 laptop:gap-3 max-h-32 laptop:max-h-80 desktop:max-h-full overflow-y-scroll"
             >
               {" "}
-              <div className="flex justify-between flex-row laptop:flex-col-reverse ">
+              <div className="flex justify-between flex-row ">
                 <h3 className="laptop:mt-2 font-medium text-small-heading laptop:text-medium dark:text-white">
                   {store.product.name}
                 </h3>
-                <p className=" font-medium text-small-heading text-orange-500">
+                <p className=" font-medium text-3xl text-orange-500">
                   {store.product.price} MAD
                 </p>
               </div>

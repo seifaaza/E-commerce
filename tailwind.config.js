@@ -15,6 +15,9 @@ module.exports = {
       colors: {
         'dark': '#0d111a',
       },
+      gridTemplateColumns: {
+        'main': 'repeat(auto-fit, minmax(250px, 270px))',
+      }
     },
     screens: {
       mobile: "320px",

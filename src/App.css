@@ -443,3 +443,9 @@ font-family: var(--font-main) !important;
 .carousel .thumbs {
   text-align: center;
 }
+
+.css-e30pdq-MuiButtonBase-root-MuiIconButton-root{
+  @apply tablet:hidden !important
+}
+
+
