@@ -53,7 +53,9 @@ export default function Market() {
         <MarketFilter />
         <span className="flex justify-between items-center">
           <SearchBar />
-          <ProductsView />
+          <span className="tablet:hidden">
+            <ProductsView />
+          </span>
         </span>
       </div>
       <div

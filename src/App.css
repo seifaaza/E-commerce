@@ -378,7 +378,7 @@ body {
 }
 .css-1a4cg4j-MuiButtonBase-root-MuiTab-root.Mui-selected{
   color: var(--orange-500) !important;
-  /* @apply  dark:text-orange-500 !important */
+  @apply  dark:text-orange-500 !important
 }
 .css-1a4cg4j-MuiButtonBase-root-MuiTab-root{
   @apply text-slate-700 font-main dark:text-white !important
@@ -444,11 +444,11 @@ font-family: var(--font-main) !important;
   text-align: center;
 }
 
-@media (min-width: 640px) {
+/* @media (min-width: 640px) {
   .css-e30pdq-MuiButtonBase-root-MuiIconButton-root{
     display: none !important;
   };
-  .css-1cg4sxv  {
+  .css-1cg4sxv{
     display: none !important;
-  }
-}
+  } 
+} */
