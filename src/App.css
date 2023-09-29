@@ -436,9 +436,3 @@ font-family: var(--font-main) !important;
 .carousel .thumbs {
   text-align: center;
 }
-
-.slide{
-  height: fit-content !important;
-  width: fit-content !important;
-  background: #000000b1;
-}

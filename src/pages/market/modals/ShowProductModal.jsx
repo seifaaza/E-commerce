@@ -63,9 +63,9 @@ export default function DeleteModel() {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "100vw",
-    height: "100vh",
-    backgroundColor: "#000000b1",
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#000000b6",
   };
 
   const [open, setOpen] = useState(false);
@@ -80,20 +80,20 @@ export default function DeleteModel() {
   return (
     <form className="flex flex-col laptop:flex-row laptop:gap-2 w-full text-slate-700 dark:text-slate-400 ">
       <div className="box flex flex-col justify-center w-full laptop:w-6/12 desktop:w-5/12">
-        <Carousel useKeyboardArrows={true}>
+        <Carousel useKeyboardArrows={true} className="overflow-hidden rounded">
           {store.product.images &&
             store.product.images.map((el, index) => {
               img = `https://srv2.aptusmaroc.com/${el.link}`;
               return (
                 <div
                   key={index}
-                  className="slide h-fit w-fit cursor-pointer z-50"
+                  className="slide h-fit w-fit cursor-pointer z-10 "
                   onClick={handleOpen}
                 >
                   <img
                     style={{ maxHeight: "430px" }}
                     src={`https://srv2.aptusmaroc.com/${el.link}`}
-                    className="w-auto object-cover rounded"
+                    className="w-auto object-cover"
                   />
                 </div>
               );
