@@ -35,7 +35,6 @@ export default function DeleteModel() {
           </h2>
         </div>
       </div>
-
       <div className="flex flex-col justify-between w-full  font-main">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-4">

@@ -8,6 +8,8 @@ const productStore = create((set) => ({
   pageSize: 25,
   pageCount: 1,
 
+  quantity: 1,
+
   saved: false,
   savedItemId: [],
 
@@ -16,6 +18,22 @@ const productStore = create((set) => ({
   buyModal: false,
 
   searchedProducts: [],
+
+  acheter: false,
+
+  acheterToggle: () => {
+    const { acheter } = productStore.getState();
+    set({ acheter: !acheter });
+  },
+
+  reduceQuantity: () => {
+    const { quantity } = productStore.getState();
+    set({ quantity: Math.max(quantity - 1, 1) });
+  },
+  increaseQuantity: () => {
+    const { quantity } = productStore.getState();
+    set({ quantity: quantity + 1 });
+  },
 
   handleSaved: (itemId) => {
     const { savedItemId } = productStore.getState();
@@ -32,7 +50,7 @@ const productStore = create((set) => ({
   },
 
   handleClose: () => {
-    set({ marketModal: false });
+    set({ marketModal: false, acheter: false });
   },
 
   buyModalSwitch: (itemId) => {

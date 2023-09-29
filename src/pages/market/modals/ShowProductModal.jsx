@@ -18,6 +18,30 @@ import TabPanel from "@mui/lab/TabPanel";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+import TextField from "@mui/material/TextField";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import IconButton from "@mui/material/IconButton";
+
+import Badge from "@mui/material/Badge";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+import MailIcon from "@mui/icons-material/Mail";
+import Switch from "@mui/material/Switch";
+import FormControlLabel from "@mui/material/FormControlLabel";
+
+import * as React from "react";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import ImageIcon from "@mui/icons-material/Image";
+import WorkIcon from "@mui/icons-material/Work";
+import BeachAccessIcon from "@mui/icons-material/BeachAccess";
+import Divider from "@mui/material/Divider";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+
 function createData(Longueur, Largeur, Hauteur) {
   return { Longueur, Largeur, Hauteur };
 }
@@ -31,6 +55,12 @@ export default function DeleteModel() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const [invisible, setInvisible] = useState(false);
+
+  const handleBadgeVisibility = () => {
+    setInvisible(!invisible);
   };
 
   return (
@@ -52,77 +82,140 @@ export default function DeleteModel() {
       </div>
 
       <div className=" p-2 laptop:p-5 flex flex-col justify-between w-full laptop:w-2/4 font-main gap-5">
-        <Box>
-          <TabContext value={value}>
-            <Box className="pb-5 laptop:pb-8">
-              <TabList
-                textColor="secondary"
-                indicatorColor="secondary"
-                onChange={handleChange}
-              >
-                <Tab label="Général" value="1" />
-                <Tab label="Caractéristiques" value="2" className="font-main" />
-              </TabList>
-            </Box>
-            <TabPanel
-              value="1"
-              className="justify-start flex flex-col gap-2 laptop:gap-3 max-h-32 laptop:max-h-80 desktop:max-h-full overflow-y-scroll"
+        {store.acheter ? (
+          <div className="flex flex-col justify-between w-full  font-main">
+            <IconButton
+              aria-label="Retour"
+              className="w-fit"
+              color="warning"
+              onClick={store.acheterToggle}
             >
-              {" "}
-              <div className="flex flex-col-reverse justify-between tablet:flex-row ">
-                <h3 className="laptop:mt-2 font-medium text-small-heading laptop:text-medium dark:text-white">
-                  {store.product.name}
-                </h3>
-                <p className=" font-medium text-2xl mb-2 tablet:text-3xl text-orange-500">
-                  {store.product.price} MAD
+              <ArrowBackIcon />
+            </IconButton>
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4"></div>
+            </div>
+
+            <List className="text-xl dark:text-white flex flex-col gap-3">
+              <ListItem>
+                <p>
+                  Produit :{" "}
+                  <span className="font-medium "> {store.product.name}</span>
                 </p>
-              </div>
-              <h2 className="text-small-heading">
-                Marque : {store.product.brand}
-              </h2>
-              <p>{store.product.description}</p>
-            </TabPanel>
-            <TabPanel
-              value="2"
-              className="flex flex-col gap-2 overflow-y-scroll"
-            >
-              {" "}
-              <TableContainer>
-                <Table aria-label="caption table" className="dark:bg-slate-900">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell className="font-main dark:text-white">
-                        Longueur (mm)
-                      </TableCell>
-                      <TableCell className="font-main dark:text-white">
-                        Largeur (mm)
-                      </TableCell>
-                      <TableCell className="font-main dark:text-white">
-                        Hauteur (mm)
-                      </TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {rows.map((row, index) => (
-                      <TableRow key={index}>
-                        <TableCell className="font-main dark:text-slate-300">
-                          {row.Longueur}
+              </ListItem>
+
+              <ListItem>
+                <p>
+                  Prix :{" "}
+                  <span className="font-medium ">
+                    {" "}
+                    {store.product.price} MAD{" "}
+                  </span>
+                </p>
+              </ListItem>
+
+              <ListItem>
+                <span className="flex gap-4">
+                  <h1>Quantité : {store.quantity}</h1>
+                  <ButtonGroup color="warning">
+                    <Button aria-label="reduce" onClick={store.reduceQuantity}>
+                      <RemoveIcon fontSize="small" />
+                    </Button>
+                    <Button
+                      aria-label="increase"
+                      onClick={store.increaseQuantity}
+                    >
+                      <AddIcon fontSize="small" />
+                    </Button>
+                  </ButtonGroup>
+                </span>
+              </ListItem>
+
+              <ListItem>
+                <h1>Totale : {store.quantity * store.product.price} MAD</h1>
+              </ListItem>
+            </List>
+          </div>
+        ) : (
+          <Box>
+            <TabContext value={value}>
+              <Box className="pb-5 laptop:pb-8">
+                <TabList
+                  textColor="secondary"
+                  indicatorColor="secondary"
+                  onChange={handleChange}
+                >
+                  <Tab label="Général" value="1" />
+                  <Tab
+                    label="Caractéristiques"
+                    value="2"
+                    className="font-main"
+                  />
+                </TabList>
+              </Box>
+              <TabPanel
+                value="1"
+                className="justify-start flex flex-col gap-2 laptop:gap-3 max-h-32 laptop:max-h-80 desktop:max-h-full overflow-y-scroll"
+              >
+                {" "}
+                <div className="flex flex-col-reverse justify-between tablet:flex-row ">
+                  <h3 className="laptop:mt-2 font-medium text-small-heading laptop:text-medium dark:text-white">
+                    {store.product.name}
+                  </h3>
+                  <p className=" font-medium text-2xl mb-2 tablet:text-3xl text-orange-500">
+                    {store.product.price} MAD
+                  </p>
+                </div>
+                <h2 className="text-small-heading">
+                  Marque : {store.product.brand}
+                </h2>
+                <p>{store.product.description}</p>
+              </TabPanel>
+              <TabPanel
+                value="2"
+                className="flex flex-col gap-2 overflow-y-scroll"
+              >
+                {" "}
+                <TableContainer>
+                  <Table
+                    aria-label="caption table"
+                    className="dark:bg-slate-900"
+                  >
+                    <TableHead>
+                      <TableRow>
+                        <TableCell className="font-main dark:text-white">
+                          Longueur (mm)
                         </TableCell>
-                        <TableCell className="font-main dark:text-slate-300">
-                          {row.Largeur}
+                        <TableCell className="font-main dark:text-white">
+                          Largeur (mm)
                         </TableCell>
-                        <TableCell className="font-main dark:text-slate-300">
-                          {row.Hauteur}
+                        <TableCell className="font-main dark:text-white">
+                          Hauteur (mm)
                         </TableCell>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </TabPanel>
-          </TabContext>
-        </Box>
-        <div className=" flex flex-col tablet:flex-row  justify-center gap-4 pt-3">
+                    </TableHead>
+                    <TableBody>
+                      {rows.map((row, index) => (
+                        <TableRow key={index}>
+                          <TableCell className="font-main dark:text-slate-300">
+                            {row.Longueur}
+                          </TableCell>
+                          <TableCell className="font-main dark:text-slate-300">
+                            {row.Largeur}
+                          </TableCell>
+                          <TableCell className="font-main dark:text-slate-300">
+                            {row.Hauteur}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </TabPanel>
+            </TabContext>
+          </Box>
+        )}
+        <div className="flex flex-col tablet:flex-row justify-center gap-4 pt-3">
           <Button
             size="large"
             component={Link}
@@ -140,9 +233,9 @@ export default function DeleteModel() {
             variant="contained"
             className="btn btn-contained"
             endIcon={<ArrowForwardIcon />}
-            onClick={() => store.buyModalSwitch(1)}
+            onClick={!store.acheter ? store.acheterToggle : null}
           >
-            Acheter
+            {store.acheter ? "Finaliser ma commande" : "Acheter"}
           </Button>
         </div>
       </div>

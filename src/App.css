@@ -447,5 +447,8 @@ font-family: var(--font-main) !important;
 @media (min-width: 640px) {
   .css-e30pdq-MuiButtonBase-root-MuiIconButton-root{
     display: none !important;
+  };
+  .css-1cg4sxv  {
+    display: none !important;
   }
 }
