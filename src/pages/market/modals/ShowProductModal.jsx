@@ -64,9 +64,17 @@ export default function DeleteModel() {
             store.product.images.map((el, index) => {
               return (
                 <div key={index} className="slide ">
+                  {/* <div
+                    className="w-full h-96 bg-cover bg-no-repeat bg-center"
+                    style={{
+                      backgroundImage: `url(https://srv2.aptusmaroc.com/${el.link})`,
+                      maxHeight: "450px",
+                    }}
+                  ></div> */}
                   <img
+                    style={{ maxHeight: "430px" }}
                     src={`https://srv2.aptusmaroc.com/${el.link}`}
-                    className="rounded"
+                    className="w-auto object-cover"
                   />
                 </div>
               );
@@ -89,7 +97,7 @@ export default function DeleteModel() {
               <div className="flex flex-col gap-4"></div>
             </div>
 
-            <List className="text-xl dark:text-white flex flex-col gap-3">
+            <List className="text-xl dark:text-white flex flex-col tablet:gap-3">
               <ListItem>
                 <p>
                   Produit :{" "}
