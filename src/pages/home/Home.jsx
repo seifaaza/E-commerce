@@ -20,7 +20,7 @@ export default function Landing() {
   return (
     <div className="flex flex-col gap-6 tablet:gap-10 laptop:gap-14 z-10 ">
       <Header />
-      <NosClients />
+      {/* <NosClients /> */}
       <Raisons />
       <Reviews />
       <Mieux />

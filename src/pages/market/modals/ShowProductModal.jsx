@@ -26,6 +26,8 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { orange } from "@mui/material/colors";
+import CloseIcon from "@mui/icons-material/Close";
+import Modal from "@mui/material/Modal";
 
 function createData(Longueur, Largeur, Hauteur) {
   return { Longueur, Largeur, Hauteur };
@@ -56,25 +58,42 @@ export default function DeleteModel() {
     },
   });
 
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "100vw",
+    height: "100vh",
+    backgroundColor: "#000000b1",
+  };
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+    console.log(img);
+  };
+  const handleClose = () => setOpen(false);
+
+  let img = "";
+
   return (
     <form className="flex flex-col laptop:flex-row laptop:gap-2 w-full text-slate-700 dark:text-slate-400 ">
-      <div className="box w-full laptop:w-6/12 desktop:w-5/12">
+      <div className="box flex flex-col justify-center w-full laptop:w-6/12 desktop:w-5/12">
         <Carousel useKeyboardArrows={true}>
           {store.product.images &&
             store.product.images.map((el, index) => {
+              img = `https://srv2.aptusmaroc.com/${el.link}`;
               return (
-                <div key={index} className="slide ">
-                  {/* <div
-                    className="w-full h-96 bg-cover bg-no-repeat bg-center"
-                    style={{
-                      backgroundImage: `url(https://srv2.aptusmaroc.com/${el.link})`,
-                      maxHeight: "450px",
-                    }}
-                  ></div> */}
+                <div
+                  key={index}
+                  className="slide h-fit w-fit cursor-pointer z-50"
+                  onClick={handleOpen}
+                >
                   <img
                     style={{ maxHeight: "430px" }}
                     src={`https://srv2.aptusmaroc.com/${el.link}`}
-                    className="w-auto object-cover"
+                    className="w-auto object-cover rounded"
                   />
                 </div>
               );
@@ -234,6 +253,25 @@ export default function DeleteModel() {
           </Button>
         </div>
       </div>
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style} className="flex justify-center items-center">
+          <img
+            src={img}
+            className="bg-contain w-full h-fit laptop:w-fit laptop:h-full "
+          />
+          <div className="absolute top-0 right-0">
+            <IconButton size="large" color="warning">
+              <CloseIcon fontSize="inherit" onClick={handleClose} />
+            </IconButton>
+          </div>
+        </Box>
+      </Modal>
     </form>
   );
 }
