@@ -436,3 +436,11 @@ font-family: var(--font-main) !important;
 .carousel .thumbs {
   text-align: center;
 }
+
+.css-1wfkfyl-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  color: #fb923c !important;
+  background-color: #ff9f511d;
+  border-radius: 8px;
+  margin: 0.5rem;
+  padding: 2rem 0;
+}
