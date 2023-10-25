@@ -30,9 +30,11 @@ export default function Login({ SignSwitch }) {
     <form
       onSubmit={handleLogin}
       encType="multipart/form-data"
-      className="flex flex-col gap-5 w-full text-slate-700 laptop:max-w-sm"
+      className="flex flex-col gap-5 w-full text-slate-700 "
     >
-      <h1 className="text-3xl text-center dark:text-white">Connectez vous</h1>
+      <h2 className="text-3xl text-center dark:text-white mb-8">
+        Connectez vous
+      </h2>
 
       <TextField
         name="username"

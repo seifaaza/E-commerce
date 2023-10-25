@@ -15,8 +15,10 @@ import Market from "./pages/market/Market";
 import Connexion from "./pages/account/Connexion";
 import RequireAuth from "./pages/auth/RequireAuth";
 import { useState } from "react";
+import mainStore from "./store/MainStore";
 
 function App() {
+  const store = mainStore();
   // const [showArrowUp, setShowArrowUp] = useState(false);
   // const show = () => {
   //   window.scrollY >= 1000 ? setShowArrowUp(true) : setShowArrowUp(false);
@@ -31,9 +33,9 @@ function App() {
   // };
 
   return (
-    <div className="relative bg-slate-50 dark:bg-dark overflow-hidden">
+    <div className="relative bg-white dark:bg-dark overflow-hidden">
       <Navbar />
-      <div className="relative main-container py-16 z-10">
+      <div className="relative z-10">
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -43,13 +45,11 @@ function App() {
           <Route path="/diagnostic" element={<Diagnostic />} />
           <Route path="/contactez-nous" element={<Contactez />} />
           <Route path="/blog" element={<Blog />} />
-
           <Route
             path="/confirmer"
             element={
               <RequireAuth>
-                {" "}
-                <Confirmer />{" "}
+                <Confirmer />
               </RequireAuth>
             }
           />

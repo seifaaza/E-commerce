@@ -30,7 +30,7 @@ export default function Market() {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    minHeight: "fit-content",
+    minHeight: "90vh",
   };
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function Market() {
   }, [store.products]);
 
   return (
-    <div className="font-main py-10 px-3 flex flex-col justify-center tablet:px-8 tablet:justify-start items-center gap-12 laptop:px-0 ">
+    <div className="main-container font-main py-20 px-3 flex flex-col justify-center tablet:px-8 tablet:justify-start items-center gap-12 laptop:px-0 ">
       <div className="flex flex-col-reverse gap-3 tablet:flex-row justify-between w-full">
         <MarketFilter />
         <span className="flex justify-between items-center">
@@ -75,7 +75,7 @@ export default function Market() {
                 key={index}
                 className={`flex 
                 ${princStore.squareView ? "flex-col" : ""}
-                tablet:flex-col justify-between gap-3 bg-white dark:bg-dark rounded p-2  cursor-pointer hover:scale-105 duration-300 hover:shadow-sm
+                tablet:flex-col justify-between gap-3 bg-white dark:bg-dark rounded-xl p-2 cursor-pointer hover:scale-105 duration-300 hover:shadow-xl
                 `}
                 onClick={() => store.fetchProduct(item._id)}
               >
@@ -128,7 +128,7 @@ export default function Market() {
       >
         <Box
           sx={style}
-          className="p-4 shadow-md bg-white dark:bg-slate-900 rounded flex flex-col laptop:flex-row w-5/6 tablet:w-3/4 laptop:w-10/12 desktop:w-8/12  justify-between "
+          className="p-4 shadow-md bg-white dark:bg-slate-900 rounded flex flex-col laptop:flex-row w-5/6 tablet:w-3/4 laptop:w-10/12 desktop:w-8/12 justify-between "
         >
           {store.buyModal ? <AcheterModal /> : <ShowProductModal />}
         </Box>

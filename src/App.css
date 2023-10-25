@@ -1,6 +1,13 @@
+@font-face {
+  src: url("https://www.axis-praxis.org/fonts/webfonts/MetaVariableDemo-Set.woff2")
+    format("woff2");
+  font-family: "Meta";
+}
+
 :root {
   /* fonts family */
-  --font-title: "Dela Gothic One", cursive;
+  /* --font-title: "Dela Gothic One", cursive; */
+  --font-title: "Meta", cursive;
   --font-main: "Poppins", sans-serif;
 
   /* font weight */
@@ -8,11 +15,12 @@
   --font-extralight: 200;
   --font-semibold: 500;
   --font-bold: 700;
+  --font-extrabold: 900;
 
   /* colors */
   --orange-400: #fb923c;
   --orange-500: #f97316;
-  --orange-opacity: rgba(251, 146, 60, 0.06);
+  --orange-opacity: rgba(251, 146, 60, 0.059);
   --gradient: linear-gradient(to left, #ef790c, #ff9315);
 
   /* Light Mode - Background */
@@ -37,6 +45,10 @@
   /* Trasnition */
   --hover-transition: 200ms ease-out;
   --animation-transition: 350ms ease-out;
+
+  /* Title animation */
+  --first-word: 'Avec';
+  --sec-word: 'Quick Bricolage';
 }
 * {
   margin: 0;
@@ -55,6 +67,7 @@ body {
 }
 
 /**************************** Responsive design ****************************/
+
 .main-container {
   width: 100%;
   margin: 0% auto;
@@ -82,6 +95,7 @@ body {
 }
 
 /**************************** Typography ****************************/
+
 /* Fonts */
 .font-title {
   font-family: var(--main-title) !important;
@@ -89,6 +103,7 @@ body {
 .font-main {
   font-family: var(--font-main) !important;
 }
+
 /* Heading text sizing */
 .text-large {
   font-size: calc(3.5rem + 0.8vw);
@@ -127,23 +142,23 @@ body {
 
 /* Heading paragraph sizing */
 .text-small-heading {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.5;
 }
 @media (min-width: 640px) {
   .text-small-heading {
-    font-size: calc(1rem + 0.2vw);
+    font-size: calc(1.1rem + 0.2vw);
   }
 }
 @media (min-width: 1024px) {
   .text-small-heading {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 }
 
 /* Paragraph sizing */
 .text-small {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 /**************************** Transition ****************************/
@@ -287,7 +302,8 @@ body {
 
 /**************************** Header ****************************/
 .heading h1 {
-  font-family: var(--font-title) !important;
+  font-family: var(--font-title);
+  font-weight: var(--font-extrabold);
 }
 /* Images */
 .image-size {
@@ -304,9 +320,10 @@ body {
   }
 }
 .blur-shape {
+  /* z-index: 99; */
   position: absolute;
   width: 820px;
-  opacity: 0.8;
+  opacity: .9;
 }
 .blur-1{
   left: 40%;
@@ -443,4 +460,262 @@ font-family: var(--font-main) !important;
   border-radius: 8px;
   margin: 0.5rem;
   padding: 2rem 0;
+}
+
+.header-bg{
+  background-image: url('/assets/images/backgrounds/bg2.jpg');
+  background-size: cover;
+}
+.connexion-bg{
+  background-image: url('/assets/images/backgrounds/connexion2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 640px) {
+  .header-bg {
+    background-position: center;
+  }
+}
+
+@supports (-webkit-text-stroke: 2.1px var(--orange-400)) {
+  .storke {
+    -webkit-text-stroke: 2.1px var(--orange-400);
+    color: transparent;
+  }
+}
+
+.heading-text{
+  position: relative;
+}
+
+
+.heading-title h1 {
+  position: relative;
+}
+.heading-title h1:nth-child(n + 2) {
+  overflow: hidden;
+}
+.heading-title > :nth-child(1){
+  height: 48px;
+  position: relative;
+  bottom: 50px;
+  opacity: 0;
+  animation: show-word-animation 500ms .1s cubic-bezier(0, 0, 0.68, 1) forwards;
+}
+@keyframes show-word-animation {
+  100% { bottom: 0px; opacity: 1; }
+} 
+@media (min-width: 640px) {
+  .heading-title > :nth-child(1){
+    height: 60px;
+  }
+}
+@media (min-width: 1024px) {
+  .heading-title > :nth-child(1){
+    height: 72px ;
+  }
+  .heading-title > :nth-child(2){
+    height: 79px !important;
+  }
+}
+
+.heading-title > :nth-child(2){
+  height: 66px;
+  overflow: hidden;
+  position: relative;
+}
+/* @media (min-width: 1024px) {
+  .heading-title > :nth-child(2){
+    height: 82.5px;
+  }
+} */
+.heading-title > :nth-child(2) span{
+  top: 100%;
+}
+
+.sec-word {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  margin: auto;
+  display: block;
+}
+
+.sec-word span {
+  color: var(--orange-400);
+  position: relative;
+  top: 20px;
+  animation: bounce .8s ease forwards alternate;
+}
+
+.sec-word span:nth-child(1) {
+  animation-delay: .2s;
+}
+
+.sec-word span:nth-child(2) {
+  animation-delay: .25s;
+}
+
+.sec-word span:nth-child(3) {
+  animation-delay: .3s;
+}
+
+.sec-word span:nth-child(4) {
+  animation-delay: .35s;
+}
+
+.sec-word span:nth-child(5) {
+  animation-delay: .4s;
+}
+.sec-word span:nth-child(6) {
+  animation-delay: .45s;
+}
+
+.sec-word span:nth-child(7) {
+  animation-delay: .5s;
+}
+
+.sec-word span:nth-child(8) {
+  animation-delay: .55s;
+}
+
+.sec-word span:nth-child(9) {
+  animation-delay: .6s;
+}
+
+.sec-word span:nth-child(10) {
+  animation-delay: .65s;
+}
+.sec-word span:nth-child(11) {
+  animation-delay: .7s;
+}
+
+.sec-word span:nth-child(12) {
+  animation-delay: .75s;
+}
+
+.sec-word span:nth-child(13) {
+  animation-delay: .8s;
+}
+
+.sec-word span:nth-child(14) {
+  animation-delay: .85s;
+}
+.sec-word span:nth-child(15) {
+  animation-delay: .9s;
+}
+
+@keyframes bounce {
+  100% {
+    top: 0px;
+  }
+}
+
+.heading-title > :nth-child(3){
+  height: 72px;
+}
+.heading-title > :nth-child(3) span:nth-child(1){
+  position: relative;
+  bottom: 100%;
+  opacity: 0;
+  animation: show-word-animation 450ms .4s cubic-bezier(0, 0, 0.23, 1.11) forwards;
+}
+.heading-title > :nth-child(3) span:nth-child(2){
+  position: relative;
+  width: 0;
+  height: 72px;
+  animation: show-word2-animation 450ms .7s cubic-bezier(0, 0, 0.23, 1.11) forwards;
+}
+@keyframes show-word2-animation {
+  100% {
+    /* width: 189.7px ; */
+    width: 142.273px ;
+  }
+}
+.heading-title > :nth-child(3) span:nth-child(3){
+  opacity: 0;
+  animation: show-word3-animation 450ms .6s cubic-bezier(0, 0, 0.23, 1.11) forwards;
+}
+@keyframes show-word3-animation {
+  100% { opacity: 1; }
+}
+
+/* .css-1ps6pg7-MuiPaper-root {
+
+} */
+
+.css-bx4uh6-MuiPopper-root {
+  position: absolute !important;
+  top: 10% !important;
+  left: 0% !important;
+}
+.services-dropdown{
+  transform: translate3d(0px, 52px, 0px) !important;
+  width: 100%;
+}
+
+.MuiButtonBase-root{
+  position: static !important;
+}
+.css-1ps6pg7-MuiPaper-root{
+  @apply bg-white rounded-xl shadow-xl overflow-hidden !important;
+}
+
+.css-iajp3t-MuiButtonGroup-root {
+  display: inline !important;
+  scrollbar-color: red !important;
+}
+
+.css-iajp3t-MuiButtonGroup-root::-webkit-scrollbar {
+  display: none;
+}
+
+.header-des, .header-buttons{
+  transform: translateY(30px);
+  opacity: 0;
+  animation: anime_article .8s .3s ease-out forwards;
+ }
+ @keyframes anime_article {
+  100%{
+    transform: translateY(0px);
+    opacity: 1;
+  }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+ .alice-carousel{
+  display: flex !important;
+  align-items: center;
+}
+.alice-carousel > div:first-of-type{
+  width: calc(100% - 50px) !important;
+  order: 2;
+}
+.alice-carousel__next-btn{
+  order: 2;
+}
+.alice-carousel__next-btn, .alice-carousel__prev-btn{
+  color: orange !important;
+  width: 50px !important;
+}
+.item{
+  margin: 10px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
 }

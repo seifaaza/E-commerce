@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const RaisonsItem = (props) => {
   return (
@@ -14,7 +14,7 @@ const RaisonsItem = (props) => {
       />
       <div className="flex flex-col gap-2 font-main text-slate-700 tablet:gap-3">
         <h4 className="font-medium text-xl dark:text-white">{props.title}</h4>
-        <p className="text-small dark:text-slate-300">{props.content}</p>
+        {/* <p className="text-small dark:text-slate-300">{props.content}</p> */}
       </div>
     </div>
   );
@@ -26,6 +26,5 @@ RaisonsItem.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
 };
-
 
 export default RaisonsItem;
